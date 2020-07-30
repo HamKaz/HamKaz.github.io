@@ -156,16 +156,16 @@
 <div class="row mx-3 my-0">
     <div class="col-12 mx-auto mx-0 my-0 px-0">
         <p class="excerpt mx-3 my-0">
-            Node.jsのパッケージ管理は、npmとYarnになります。今回npmとYarnをインストールし、Node.jsのパッケージ管理への理解を深めます。またnpmコマンド実行時の警告・エラー回避方法についても調べました。
+            Node.jsのパッケージ管理npmとYarnを使ってNode.jsのパッケージ管理方法を理解するとともに、npm install時に発生する警告やエラーメッセージの回避方法について調べてみました。
         </p>
     </div>
 </div>
 
 <div class="row mx-3 my-0">
-    <div class="col-12 col-md-8 mx-3 mx-auto mt-3 mb-0 border">
+    <div class="col-12 col-md-8 mx-3 mx-auto mt-3 mb-3 border">
       <p class="mx-3 my-3 h6 text-center">目次</p>
       <div class="mx-3 my-1">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-Node-js%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">npm - Node.jsのパッケージ管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86-npm"><span class="toc-number">2.</span> <span class="toc-text">Node.jsのパッケージ管理 npm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%82%E3%81%86%E4%B8%80%E3%81%A4%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86-Yarn"><span class="toc-number">3.</span> <span class="toc-text">もう一つのパッケージ管理 Yarn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3npm%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AE%E8%AD%A6%E5%91%8A%E3%83%BB%E3%82%A8%E3%83%A9%E3%83%BC"><span class="toc-number">4.</span> <span class="toc-text">コマンドラインnpm実行時の警告・エラー</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E2%80%9Cfound-low-severity-vulnerability%E2%80%9D"><span class="toc-number">4.1.</span> <span class="toc-text">1. “found * low severity vulnerability”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SKIPPING-OPTIONAL-DEPENDENCY-fsevents"><span class="toc-number">4.2.</span> <span class="toc-text">2. SKIPPING OPTIONAL DEPENDENCY: fsevents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-fund%E3%81%AE%E8%A1%A8%E7%A4%BA%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%AF%EF%BC%9F"><span class="toc-number">4.3.</span> <span class="toc-text">3. fundの表示の意味は？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%BE%E3%81%A8%E3%82%81"><span class="toc-number">5.</span> <span class="toc-text">まとめ</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm%E3%81%A8yarn-Node-js%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">npmとyarn - Node.jsのパッケージ管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86-npm"><span class="toc-number">2.</span> <span class="toc-text">Node.jsのパッケージ管理 npm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js%E3%81%AE%E3%82%82%E3%81%86%E4%B8%80%E3%81%A4%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86-Yarn"><span class="toc-number">3.</span> <span class="toc-text">Node.jsのもう一つのパッケージ管理 Yarn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AB%E8%A6%8B%E3%81%8B%E3%81%91%E3%82%8B%E3%82%A8%E3%83%A9%E3%83%BC"><span class="toc-number">4.</span> <span class="toc-text">npm install実行時に見かけるエラー</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9Cfound-1-low-severity-vulnerability%E2%80%9D"><span class="toc-number">4.1.</span> <span class="toc-text">“found 1 low severity vulnerability”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%A7%A3%E6%B1%BA%E3%81%A7%E3%81%8D%E3%82%8B%E5%A0%B4%E5%90%88"><span class="toc-number">4.1.1.</span> <span class="toc-text">(1) 解決できる場合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9Cnpm-WARN-optional-SKIPPING-OPTIONAL-DEPENDENCY-fsevents%E2%80%A6%E2%80%9D"><span class="toc-number">4.2.</span> <span class="toc-text">“npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents…”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E2%80%9Cnpm-fund%E2%80%9D"><span class="toc-number">4.3.</span> <span class="toc-text">3. “npm fund”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%BE%E3%81%A8%E3%82%81"><span class="toc-number">5.</span> <span class="toc-text">まとめ</span></a></li></ol>
     </div>
     </div>
 </div>
@@ -173,38 +173,60 @@
 <div class="row mx-3 mt-0 mb-3">
     <div class="col-12 mx-auto mx-0 my-0 px-0">
         <div class="col-12 mx-3 my-0">
-    <h2 id="npm-Node-jsのパッケージ管理"><a href="#npm-Node-jsのパッケージ管理" class="headerlink" title="npm - Node.jsのパッケージ管理"></a>npm - Node.jsのパッケージ管理</h2><p>npmには２つの意味があり、一つはオープンソースパッケージが管理されているオンラインリポジトリを指し、もう一つはパッケージを管理するためのコマンドラインツールを指します。</p>
+    <h2 id="npmとyarn-Node-jsのパッケージ管理"><a href="#npmとyarn-Node-jsのパッケージ管理" class="headerlink" title="npmとyarn - Node.jsのパッケージ管理"></a>npmとyarn - Node.jsのパッケージ管理</h2><p>JavaScriptの実行環境Node.jsでは、Node.js上で動作するプラグインやツールなどをパッケージ管理npmやyarnで管理します。</p>
+<p>npmとはNode.jsのデフォルトのパッケージ管理で、２つの意味を持ちます。一つはNode.jsのオンラインリポジトリを指し、もう一つはコマンドラインツールnpmを指します。</p>
+<p>Node.jsのパッケージはコマンドラインツールnpmを使ってインストールします。npm自体はNode.jsをインストールすると同時にインストールされます。</p>
 <blockquote>
-<p><a href="https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm/" target="_blank" rel="noopener">What is npm? （Node.js公式ページ）</a></p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/en/knowledge/getting-started/npm/what-is-npm/">Node.js公式サイト：What is npm?</a></p>
 </blockquote>
-<h2 id="Node-jsのパッケージ管理-npm"><a href="#Node-jsのパッケージ管理-npm" class="headerlink" title="Node.jsのパッケージ管理 npm"></a>Node.jsのパッケージ管理 npm</h2><p>Node.jsのパッケージはコマンドラインツールnpmを使ってインストールします。npm自体はNode.jsをインストールすると同時にインストールされます。</p>
-<p><code>npm install</code>コマンドでインストールされたパッケージは管理ファイルpackage.jsonで管理され、コマンド実行時のディレクトリ（プロジェクトのルートディレクトリ）に配置されます。</p>
-<h2 id="もう一つのパッケージ管理-Yarn"><a href="#もう一つのパッケージ管理-Yarn" class="headerlink" title="もう一つのパッケージ管理 Yarn"></a>もう一つのパッケージ管理 Yarn</h2><p>Node.jsが普及するにつれて、npmにはインストール速度やセキュリティの問題があることが分かりました。そこでFacebook、GoogleなどによってYarnというパッケージ管理方法が新たに発表されました。</p>
+<p>npmのオンラインリポジトリでは、Node.jsで開発されたアプリケーションやプラグイン・ツールをパッケージ管理します。コミュニティや個人で開発されたオープンソースパッケージが利用できます。</p>
+<p>Node.jsの普及に伴い、npmによるパッケージ管理はインストール速度やセキュリティといった点で問題があることが分かりました。</p>
+<p>こうしたnpmの諸問題を解決するため、Facebook、GoogleなどによってYarnというパッケージ管理方法が新たに発表されました。</p>
 <blockquote>
-<p><a href="https://www.webprofessional.jp/yarn-vs-npm/" target="_blank" rel="noopener">Yarn：Facebook発のパッケージマネジャーはnpmに代わるスタンダードになるか</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.webprofessional.jp/yarn-vs-npm/">参考サイト：Yarn：Facebook発のパッケージマネジャーはnpmに代わるスタンダードになるか</a></p>
 </blockquote>
-<p>Yarnはnpmと互換性のあるパッケージ管理方法で管理ファイルpackage.jsonに記録するとともに、yarn.lockファイルを生成してモジュールの管理を行います。</p>
-<p>Yarn自体はnpmコマンドにより<code>npm install -g yarn</code>でインストールします。</p>
-<h2 id="コマンドラインnpm実行時の警告・エラー"><a href="#コマンドラインnpm実行時の警告・エラー" class="headerlink" title="コマンドラインnpm実行時の警告・エラー"></a>コマンドラインnpm実行時の警告・エラー</h2><h3 id="1-“found-low-severity-vulnerability”"><a href="#1-“found-low-severity-vulnerability”" class="headerlink" title="1. “found * low severity vulnerability”"></a>1. “found * low severity vulnerability”</h3><p>インストールしたパッケージモジュールに脆弱性があると公表されている場合、このようなメッセージが表示されます。npm auditコマンドで、解決方法が存在するか確認できます。</p>
-<p>a) 解決方法が存在する場合</p>
-<p>npm auditコマンドを実行すると、解決方法の有無がメッセージで表示されます。表示内容に従ってコマンド実行すると、脆弱性のあるモジュールが更新されます。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x3D;&#x3D;&#x3D; npm audit security report &#x3D;&#x3D;&#x3D;</span><br><span class="line"># Run  npm update lodash --depth 2  to resolve 1 vulnerability</span><br></pre></td></tr></table></figure>
-
-<p>未知の脆弱性が存在する場合には、npm auditで解決できるとは限らない場合があります。</p>
-<p>b) 解決方法が存在しない場合</p>
-<p>npm audit fixを実行して、より脆弱性の低い状態に更新しておきます。低脆弱性でありLAN内で使用する場合にはそのままにしておきます。</p>
+<p>Node.jsのパッケージ管理であるnpmとyarnを正しく理解するため、調べてみました。</p>
+<h2 id="Node-jsのパッケージ管理-npm"><a href="#Node-jsのパッケージ管理-npm" class="headerlink" title="Node.jsのパッケージ管理 npm"></a>Node.jsのパッケージ管理 npm</h2><p>Node.jsの標準のパッケージ管理方法はnpmです。</p>
+<p><code>npm install</code>コマンドでインストールされたパッケージは管理ファイルとしてpackage.jsonで管理されます。</p>
+<p>package.jsonはパッケージのインストール履歴として機能し、<em>プロジェクトのルートディレクトリ</em>に配置されます。</p>
+<p>初めてのインストール時にpackage.jsonが作成され、新たなパッケージの追加・既存のパッケージの更新時には現存するpackage.jsonが追記されます。</p>
+<h2 id="Node-jsのもう一つのパッケージ管理-Yarn"><a href="#Node-jsのもう一つのパッケージ管理-Yarn" class="headerlink" title="Node.jsのもう一つのパッケージ管理 Yarn"></a>Node.jsのもう一つのパッケージ管理 Yarn</h2><p>Yarnはnpmのパッケージ管理方法と互換性を持ちます。パッケージの追加・更新時には既存のpackage.jsonに追記するとともに、yarn.lockファイルを生成して、yarn側でもパッケージ管理を行います。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://qiita.com/lelouch99v/items/c97ff951ca31298f3f24">参考サイト：Yarnとは</a></p>
+</blockquote>
+<h2 id="npm-install実行時に見かけるエラー"><a href="#npm-install実行時に見かけるエラー" class="headerlink" title="npm install実行時に見かけるエラー"></a>npm install実行時に見かけるエラー</h2><p>npm install実行時にはさまざまな警告やエラーメッセージを見かけます。ここでは、これらの警告・エラーメッセージへの基本的な対処方法を調べました。</p>
+<h3 id="“found-1-low-severity-vulnerability”"><a href="#“found-1-low-severity-vulnerability”" class="headerlink" title="“found 1 low severity vulnerability”"></a>“found 1 low severity vulnerability”</h3><p>インストールしたパッケージモジュールに脆弱性がある場合、配布元から報告された脆弱性に関するメッセージが表示されます。</p>
+<p>脆弱性（vulnerability）に関するメッセージが表示された場合、<code>npm audit</code>を実行します。このコマンドでは、脆弱性のあるパッケージのリストアップと、解決方法の有無が確認できます。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">                                                                          </span><br><span class="line">                       &#x3D;&#x3D;&#x3D; npm audit security report &#x3D;&#x3D;&#x3D;                        </span><br><span class="line">                                                                                </span><br><span class="line">┌──────────────────────────────────────────────────────────────────────────────┐</span><br><span class="line">│                                Manual Review                                 │</span><br><span class="line">│            Some vulnerabilities require your attention to resolve            │</span><br><span class="line">│                                                                              │</span><br><span class="line">│         Visit https:&#x2F;&#x2F;go.npm.me&#x2F;audit-guide for additional guidance          │</span><br><span class="line">└──────────────────────────────────────────────────────────────────────────────┘</span><br><span class="line">┌───────────────┬──────────────────────────────────────────────────────────────┐</span><br><span class="line">│ Low           │ Prototype Pollution                                          │</span><br><span class="line">├───────────────┼──────────────────────────────────────────────────────────────┤</span><br><span class="line">│ Package       │ minimist                                                     │</span><br><span class="line">├───────────────┼──────────────────────────────────────────────────────────────┤</span><br><span class="line">│ Patched in    │ &gt;&#x3D;0.2.1 &lt;1.0.0 || &gt;&#x3D;1.2.3                                    │</span><br><span class="line">├───────────────┼──────────────────────────────────────────────────────────────┤</span><br><span class="line">│ Dependency of │ hexo                                                         │</span><br><span class="line">├───────────────┼──────────────────────────────────────────────────────────────┤</span><br><span class="line">│ Path          │ hexo &gt; swig-templates &gt; optimist &gt; minimist                  │</span><br><span class="line">├───────────────┼──────────────────────────────────────────────────────────────┤</span><br><span class="line">│ More info     │ https:&#x2F;&#x2F;npmjs.com&#x2F;advisories&#x2F;1179                            │</span><br><span class="line">└───────────────┴──────────────────────────────────────────────────────────────┘</span><br><span class="line">found 1 low severity vulnerability in 253 scanned packages</span><br><span class="line">  1 vulnerability requires manual review. See the full report for details.</span><br></pre></td></tr></table></figure>
 
-<p>上記の例では、呼び出し元のoptimistが、minimistの古いバージョンに依存しているといった脆弱性警告メッセージが表示されています。</p>
-<h3 id="2-SKIPPING-OPTIONAL-DEPENDENCY-fsevents"><a href="#2-SKIPPING-OPTIONAL-DEPENDENCY-fsevents" class="headerlink" title="2. SKIPPING OPTIONAL DEPENDENCY: fsevents"></a>2. SKIPPING OPTIONAL DEPENDENCY: fsevents</h3><p>MacOSに依存性のあるパッケージモジュールをインストールした場合、次のようなメッセージが表示されます。</p>
+<p>上記のメッセージでは、optimistという呼び出し元モジュールがminimistの古いバージョンに依存しているため、警告メッセージを発しています。</p>
+<p>静寂性に関する警告が表示された場合、<code>npm audit</code>コマンドを実行して、解決方法の存在を確認します。</p>
+<ul>
+<li>(1) 脆弱性に関する解決方法が公開されている場合</li>
+<li>(2) 解決方法がない場合</li>
+</ul>
+<h4 id="1-解決できる場合"><a href="#1-解決できる場合" class="headerlink" title="(1) 解決できる場合"></a>(1) 解決できる場合</h4><p><strong>a) 解決コマンドが表示される場合</strong></p>
+<p>脆弱性に対する解決方法が公開されている場合、次のようなメッセージが表示されます。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x3D;&#x3D;&#x3D; npm audit security report &#x3D;&#x3D;&#x3D;</span><br><span class="line"># Run  npm update lodash --depth 2  to resolve 1 vulnerability</span><br></pre></td></tr></table></figure>
+
+<p>表示されたコマンドを実行すると、解決済みのモジュールに更新されます。</p>
+<p><strong>b) 解決に導くコマンドが表示されない場合</strong></p>
+<p>npm audit fixを実行するとモジュールがバージョンアップされ、脆弱性の程度を下げることができる場合があります。</p>
+<p><strong>c) 対策中の場合</strong></p>
+<p>対策中の場合にはセキュリティレポートが表示されません。低度の脆弱性であれば、配布元から解決方法が提示されるまでそのまま運用しますが、セキュリティに関する注意が必要になります。</p>
+<ul>
+<li>※ 注意事項として、未知の脆弱性に対しては<code>npm audit</code>で解決できません。</li>
+</ul>
+<h3 id="“npm-WARN-optional-SKIPPING-OPTIONAL-DEPENDENCY-fsevents…”"><a href="#“npm-WARN-optional-SKIPPING-OPTIONAL-DEPENDENCY-fsevents…”" class="headerlink" title="“npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents…”"></a>“npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents…”</h3><p>インストールするパッケージによっては、OS依存ファイルに対する警告メッセージが表示される場合があります。下記の例ではfseventsにおいてMac OSに依存するモジュールを警告しています。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;linux&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>対策としては、OPTIONAL DEPENDENCYと表示されたオプションモジュールを除外するため、<code>npm install -f</code>コマンドで除外インストールします。</p>
+<p><code>OPTIONAL DEPENDENCY</code>と表示された場合、Linuxではインストールの必要がないモジュール（オプションモジュール）を除外できます。</p>
 <blockquote>
-<p><a href="https://stackoverflow.com/questions/46929196/how-to-solve-npm-install-throwing-fsevents-warning-on-non-mac-os" target="_blank" rel="noopener">How to solve npm install throwing fsevents warning on non-Mac OS?</a></p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/46929196/how-to-solve-npm-install-throwing-fsevents-warning-on-non-mac-os">参考サイト：How to solve npm install throwing fsevents warning on non-Mac OS?</a></p>
 </blockquote>
 <p>※ FoggyDay Oct 14’19 at 16:17のコメントを参照</p>
-<h3 id="3-fundの表示の意味は？"><a href="#3-fundの表示の意味は？" class="headerlink" title="3. fundの表示の意味は？"></a>3. fundの表示の意味は？</h3><p>パッケージの開発者への寄付を募るメッセージであり、npm fundコマンドを実行すると、どのパッケージが寄付対象であるか示されます。</p>
+<p>対策としては、OPTIONAL DEPENDENCYと表示されたオプションモジュールを除外インストールするため、<code>npm install -f</code>コマンドを実行します。</p>
+<h3 id="3-“npm-fund”"><a href="#3-“npm-fund”" class="headerlink" title="3. “npm fund”"></a>3. “npm fund”</h3><p>npm fundとはパッケージの開発者への寄付を募るメッセージです。npm fundコマンドを実行すると、どのパッケージが寄付対象であるか示されます。</p>
 <h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>npmとyarnはどちらか一方を使用しなければならないというわけではなく、混在して使用できます。</p>
 <p>Yarnを用いると、パッケージモジュールのインストールが早くなり、インストール時のスクリプト実行が抑えられてセキュリティが確保されることから、yarnを使う動きが広がっているようです。</p>
 
@@ -225,7 +247,7 @@
         <p class="h5 text-center">目次</p>
     </div>
     <div class="col-12">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-Node-js%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">npm - Node.jsのパッケージ管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86-npm"><span class="toc-number">2.</span> <span class="toc-text">Node.jsのパッケージ管理 npm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%82%E3%81%86%E4%B8%80%E3%81%A4%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86-Yarn"><span class="toc-number">3.</span> <span class="toc-text">もう一つのパッケージ管理 Yarn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3npm%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AE%E8%AD%A6%E5%91%8A%E3%83%BB%E3%82%A8%E3%83%A9%E3%83%BC"><span class="toc-number">4.</span> <span class="toc-text">コマンドラインnpm実行時の警告・エラー</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E2%80%9Cfound-low-severity-vulnerability%E2%80%9D"><span class="toc-number">4.1.</span> <span class="toc-text">1. “found * low severity vulnerability”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SKIPPING-OPTIONAL-DEPENDENCY-fsevents"><span class="toc-number">4.2.</span> <span class="toc-text">2. SKIPPING OPTIONAL DEPENDENCY: fsevents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-fund%E3%81%AE%E8%A1%A8%E7%A4%BA%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%AF%EF%BC%9F"><span class="toc-number">4.3.</span> <span class="toc-text">3. fundの表示の意味は？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%BE%E3%81%A8%E3%82%81"><span class="toc-number">5.</span> <span class="toc-text">まとめ</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm%E3%81%A8yarn-Node-js%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">npmとyarn - Node.jsのパッケージ管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86-npm"><span class="toc-number">2.</span> <span class="toc-text">Node.jsのパッケージ管理 npm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-js%E3%81%AE%E3%82%82%E3%81%86%E4%B8%80%E3%81%A4%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86-Yarn"><span class="toc-number">3.</span> <span class="toc-text">Node.jsのもう一つのパッケージ管理 Yarn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AB%E8%A6%8B%E3%81%8B%E3%81%91%E3%82%8B%E3%82%A8%E3%83%A9%E3%83%BC"><span class="toc-number">4.</span> <span class="toc-text">npm install実行時に見かけるエラー</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9Cfound-1-low-severity-vulnerability%E2%80%9D"><span class="toc-number">4.1.</span> <span class="toc-text">“found 1 low severity vulnerability”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%A7%A3%E6%B1%BA%E3%81%A7%E3%81%8D%E3%82%8B%E5%A0%B4%E5%90%88"><span class="toc-number">4.1.1.</span> <span class="toc-text">(1) 解決できる場合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9Cnpm-WARN-optional-SKIPPING-OPTIONAL-DEPENDENCY-fsevents%E2%80%A6%E2%80%9D"><span class="toc-number">4.2.</span> <span class="toc-text">“npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents…”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E2%80%9Cnpm-fund%E2%80%9D"><span class="toc-number">4.3.</span> <span class="toc-text">3. “npm fund”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%BE%E3%81%A8%E3%82%81"><span class="toc-number">5.</span> <span class="toc-text">まとめ</span></a></li></ol>
     <div
 </section>
 

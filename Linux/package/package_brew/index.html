@@ -156,16 +156,16 @@
 <div class="row mx-3 my-0">
     <div class="col-12 mx-auto mx-0 my-0 px-0">
         <p class="excerpt mx-3 my-0">
-            Linux Debian10のパッケージ管理aptは、ソフトウエアのインストールに用いられます。パッケージ管理aptとリポジトリの管理、及びaptコマンド実行時の警告・エラー回避方法について調べました。
+            Linux Debian系のソフトウエアはaptというパッケージ管理で提供されます。aptで提供されないソフトウエアのうち、Homebrewというパッケージ管理について調べるとともに、Homebrewで提供されるソフトウエアのインストールとリポジトリ管理を調べてみました。
         </p>
     </div>
 </div>
 
 <div class="row mx-3 my-0">
-    <div class="col-12 col-md-8 mx-3 mx-auto mt-3 mb-0 border">
+    <div class="col-12 col-md-8 mx-3 mx-auto mt-3 mb-3 border">
       <p class="mx-3 my-3 h6 text-center">目次</p>
       <div class="mx-3 my-1">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#brew-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">brew - パッケージ管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="toc-number">2.</span> <span class="toc-text">インストールに必要なコマンド</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86"><span class="toc-number">3.</span> <span class="toc-text">インストール手順</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Homebrew%E3%81%AE%E6%88%90%E3%82%8A%E7%AB%8B%E3%81%A1"><span class="toc-number">1.</span> <span class="toc-text">Homebrewの成り立ち</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#brew-Homebrew-Linuxbrew%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">brew - Homebrew, Linuxbrewのパッケージ管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="toc-number">3.</span> <span class="toc-text">インストールに必要なコマンド</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86"><span class="toc-number">4.</span> <span class="toc-text">インストール手順</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">インストール方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E7%94%A8%E6%84%8F%E3%81%99%E3%82%8B"><span class="toc-number">5.1.</span> <span class="toc-text">(1) インストールに必要なコマンドを用意する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%A8%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%82%92curl%E3%81%A7%E5%8F%96%E5%BE%97%E3%81%97%E3%80%81%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B"><span class="toc-number">5.2.</span> <span class="toc-text">(2) インストール用スクリプトをcurlで取得し、インストールする</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#brew%E3%81%A7%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8"><span class="toc-number">7.</span> <span class="toc-text">brewでインストールできるパッケージ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%BE%E3%81%A8%E3%82%81"><span class="toc-number">8.</span> <span class="toc-text">まとめ</span></a></li></ol>
     </div>
     </div>
 </div>
@@ -173,32 +173,44 @@
 <div class="row mx-3 mt-0 mb-3">
     <div class="col-12 mx-auto mx-0 my-0 px-0">
         <div class="col-12 mx-3 my-0">
-    <h2 id="brew-パッケージ管理"><a href="#brew-パッケージ管理" class="headerlink" title="brew - パッケージ管理"></a>brew - パッケージ管理</h2><p>Mac OS用ソフトウエアのパッケージ管理として、Homebrewは発展してきました。</p>
+    <h2 id="Homebrewの成り立ち"><a href="#Homebrewの成り立ち" class="headerlink" title="Homebrewの成り立ち"></a>Homebrewの成り立ち</h2><p>Linuxのディストリビューションによらないソフトウエア、Windows、Mac OS、Linuxなどのマルチプラットフォームで提供されるソフトウエアは、パッケージ管理apt以外の方法で提供されています。</p>
+<p>HomebrewはMac OSのコミュニティで発展したパッケージ管理で、Apple社で提供しないソフトウエアをインストールできます。HomebrewではLinuxのパッケージ管理aptなどで提供されるソフトウエアがインストールできます。</p>
+<p>またLinuxでは、Linuxbrewというパッケージ管理として発展し、aptで提供しないソフトウエアをインストールすることができます。</p>
+<h2 id="brew-Homebrew-Linuxbrewのパッケージ管理"><a href="#brew-Homebrew-Linuxbrewのパッケージ管理" class="headerlink" title="brew - Homebrew, Linuxbrewのパッケージ管理"></a>brew - Homebrew, Linuxbrewのパッケージ管理</h2><p>Homebrewは、Apple社で提供していないソフトウエアパッケージを管理する方法で、次のようにしてインストールします。</p>
 <blockquote>
-<p><a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew公式ページ</a></p>
+<p><a target="_blank" rel="noopener" href="https://brew.sh/">公式サイト：Homebrew</a></p>
 </blockquote>
-<p>Unixと親和性の高いLinuxでもLinuxbrewとして発展しました。</p>
+<p>Linux DebianにおいてはLinuxbrewというパッケージ管理として発展してきました。Debian10にbrewをインストールする方法について、下記のサイトを参考にしました。</p>
 <blockquote>
-<p><a href="https://www.tacoskingdom.com/blog/52" target="_blank" rel="noopener">Debian10にLinuxbrewをインストールする</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.tacoskingdom.com/blog/52">参考サイト：Debian10にLinuxbrewをインストールする</a></p>
 </blockquote>
-<p>Go言語の静的サイトジェネレーターHugoをインストールする場合には、brewコマンドが必要となります。</p>
-<blockquote>
-<p><a href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener">Hugo公式ページ インストール手順</a></p>
-</blockquote>
-<h2 id="インストールに必要なコマンド"><a href="#インストールに必要なコマンド" class="headerlink" title="インストールに必要なコマンド"></a>インストールに必要なコマンド</h2><p>build-essential, curl, file, git<br>gcc, GNU C</p>
-<h2 id="インストール手順"><a href="#インストール手順" class="headerlink" title="インストール手順"></a><a id="anchor3">インストール手順</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<p>これらのサイトには明言されていないのですが、brew実行時にはroot権限を必要としません。</p>
+<h2 id="インストールに必要なコマンド"><a href="#インストールに必要なコマンド" class="headerlink" title="インストールに必要なコマンド"></a>インストールに必要なコマンド</h2><p>build-essential, curl, file, git</p>
+<h2 id="インストール手順"><a href="#インストール手順" class="headerlink" title="インストール手順"></a>インストール手順</h2><ul>
+<li>(1) インストールに必要なコマンドを用意する</li>
+<li>(2) インストール用スクリプトをcurlで取得し、インストールする </li>
+</ul>
+<h2 id="インストール方法"><a href="#インストール方法" class="headerlink" title="インストール方法"></a>インストール方法</h2><h3 id="1-インストールに必要なコマンドを用意する"><a href="#1-インストールに必要なコマンドを用意する" class="headerlink" title="(1) インストールに必要なコマンドを用意する"></a>(1) インストールに必要なコマンドを用意する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Debian 10, as root</span><br><span class="line">apt install build-essential curl file git</span><br></pre></td></tr></table></figure>
 
+<h3 id="2-インストール用スクリプトをcurlで取得し、インストールする"><a href="#2-インストール用スクリプトをcurlで取得し、インストールする" class="headerlink" title="(2) インストール用スクリプトをcurlで取得し、インストールする"></a>(2) インストール用スクリプトをcurlで取得し、インストールする</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>スクリプトがダウンロードされ、順番にコマンド実行されます。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test -d ~&#x2F;.linuxbrew &amp;&amp; eval $(~&#x2F;.linuxbrew&#x2F;bin&#x2F;brew shellenv)</span><br><span class="line">test -d &#x2F;home&#x2F;linuxbrew&#x2F;.linuxbrew &amp;&amp; eval $(&#x2F;home&#x2F;linuxbrew&#x2F;.linuxbrew&#x2F;bin&#x2F;brew shellenv)</span><br><span class="line">test -r ~&#x2F;.bash_profile &amp;&amp; echo &quot;eval \$($(brew --prefix)&#x2F;bin&#x2F;brew shellenv)&quot; &gt;&gt;~&#x2F;.bash_profile</span><br><span class="line">echo &quot;eval \$($(brew --prefix)&#x2F;bin&#x2F;brew shellenv)&quot; &gt;&gt;~&#x2F;.profile</span><br></pre></td></tr></table></figure>
 
+<p>bashでbrewコマンドを実行するために、次の内容を.bashrcに追記します。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&quot;&#x2F;home&#x2F;linuxbrew&#x2F;.linuxbrew&#x2F;bin:$PATH&quot;</span><br><span class="line">export PATH&#x3D;&quot;&#x2F;home&#x2F;linuxbrew&#x2F;.linuxbrew&#x2F;share&#x2F;man:$PATH&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>brewを使ってパッケージをインストールするには<code>brew install</code>コマンドを実行します。次の例ではサンプルパッケージhelloをインストールしています。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install hello</span><br></pre></td></tr></table></figure>
 
-<p>プロファイル設定</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eval $(&#x2F;home&#x2F;hamkaz&#x2F;.linuxbrew&#x2F;bin&#x2F;brew shellenv)</span><br><span class="line"></span><br><span class="line">exportの２行を追記する</span><br></pre></td></tr></table></figure>
-<p>sudo nano ~/.bashrc</p>
-<p>export PATH=”/home/linuxbrew/.linuxbrew/bin:$PATH”<br>export PATH=”/home/linuxbrew/.linuxbrew/share/man:$PATH”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">バージョン確認</span><br></pre></td></tr></table></figure>
-<p>hamkaz@debian1-de-kaz:~$ brew –version</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="brewでインストールできるパッケージ"><a href="#brewでインストールできるパッケージ" class="headerlink" title="brewでインストールできるパッケージ"></a>brewでインストールできるパッケージ</h2><p>Go言語の静的サイトジェネレーターHugoをインストールする際、brewを使ってインストールします。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://gohugo.io/getting-started/installing/">Hugo公式ページ インストール手順</a></p>
+</blockquote>
+<p>PythonやRubyもbrewによるパッケージ管理が行われているようで、今後インストール手順についてまとめたいと思います。</p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>brewを用いるとインストールが簡単になります。</p>
+<p>またbrew実行時には、apt install実行時のようにroot権限を必要としません。そのため、システムに深く根ざす依存関係が発生しないことがbrewの特徴になります。</p>
+
 </div>
 
     </div>
@@ -216,7 +228,7 @@
         <p class="h5 text-center">目次</p>
     </div>
     <div class="col-12">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#brew-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">brew - パッケージ管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="toc-number">2.</span> <span class="toc-text">インストールに必要なコマンド</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86"><span class="toc-number">3.</span> <span class="toc-text">インストール手順</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Homebrew%E3%81%AE%E6%88%90%E3%82%8A%E7%AB%8B%E3%81%A1"><span class="toc-number">1.</span> <span class="toc-text">Homebrewの成り立ち</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#brew-Homebrew-Linuxbrew%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">brew - Homebrew, Linuxbrewのパッケージ管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="toc-number">3.</span> <span class="toc-text">インストールに必要なコマンド</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86"><span class="toc-number">4.</span> <span class="toc-text">インストール手順</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">インストール方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E7%94%A8%E6%84%8F%E3%81%99%E3%82%8B"><span class="toc-number">5.1.</span> <span class="toc-text">(1) インストールに必要なコマンドを用意する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%94%A8%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%82%92curl%E3%81%A7%E5%8F%96%E5%BE%97%E3%81%97%E3%80%81%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B"><span class="toc-number">5.2.</span> <span class="toc-text">(2) インストール用スクリプトをcurlで取得し、インストールする</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#brew%E3%81%A7%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A7%E3%81%8D%E3%82%8B%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8"><span class="toc-number">7.</span> <span class="toc-text">brewでインストールできるパッケージ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%BE%E3%81%A8%E3%82%81"><span class="toc-number">8.</span> <span class="toc-text">まとめ</span></a></li></ol>
     <div
 </section>
 

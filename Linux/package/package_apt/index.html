@@ -156,13 +156,13 @@
 <div class="row mx-3 my-0">
     <div class="col-12 mx-auto mx-0 my-0 px-0">
         <p class="excerpt mx-3 my-0">
-            Linux Debian10のパッケージ管理aptは、ソフトウエアのインストールに用いられます。パッケージ管理aptとリポジトリの管理、及びaptコマンド実行時の警告・エラー回避方法について調べました。
+            Linuxのソフトウエアはパッケージと呼ばれる方法で管理します。Debian系のディストリビューションではパッケージ管理aptで行います。aptを用いたソフトウエアのインストールと、インストール履歴を扱うリポジトリ管理、そしてapt実行時の警告・エラー対策について調べてみました。
         </p>
     </div>
 </div>
 
 <div class="row mx-3 my-0">
-    <div class="col-12 col-md-8 mx-3 mx-auto mt-3 mb-0 border">
+    <div class="col-12 col-md-8 mx-3 mx-auto mt-3 mb-3 border">
       <p class="mx-3 my-3 h6 text-center">目次</p>
       <div class="mx-3 my-1">
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86-apt"><span class="toc-number">1.</span> <span class="toc-text">パッケージ管理 - apt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86Apt%E3%81%A7%E8%A1%8C%E3%82%8F%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8"><span class="toc-number">2.</span> <span class="toc-text">パッケージ管理Aptで行われること</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apt%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E8%A6%A7"><span class="toc-number">3.</span> <span class="toc-text">aptコマンド一覧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apt%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AE%E8%AD%A6%E5%91%8A%E3%83%BB%E3%82%A8%E3%83%A9%E3%83%BC"><span class="toc-number">4.</span> <span class="toc-text">apt実行時の警告・エラー</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-apt-update-%E3%80%8C%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%9B%E3%82%93%E3%80%8D"><span class="toc-number">4.1.</span> <span class="toc-text">1. apt update - 「リポジトリにファイルがありません」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-apt-update-%E3%80%8C%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%8C%E8%87%AA%E5%8B%95%E3%81%A7%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%95%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8C%E3%80%81%E3%82%82%E3%81%86%E5%BF%85%E8%A6%81%E3%81%A8%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%81%BE%E3%81%9B%E3%82%93%E3%80%8D"><span class="toc-number">4.2.</span> <span class="toc-text">2. apt update - 「以下のパッケージが自動でインストールされましたが、もう必要とされていません」</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%BE%E3%81%A8%E3%82%81"><span class="toc-number">5.</span> <span class="toc-text">まとめ</span></a></li></ol>
@@ -175,12 +175,12 @@
         <div class="col-12 mx-3 my-0">
     <h2 id="パッケージ管理-apt"><a href="#パッケージ管理-apt" class="headerlink" title="パッケージ管理 - apt"></a>パッケージ管理 - apt</h2><p>Linux Debian、及びUbuntuなどの派生ディストリビューションでは、Aptと呼ばれるパッケージ管理、及びコマンドラインツールaptを用いてパッケージ情報の管理を行います。</p>
 <blockquote>
-<p><a href="https://wiki.debian.org/Apt" target="_blank" rel="noopener">Debian公式Wiki - Advanced Package Tool</a></p>
+<p><a target="_blank" rel="noopener" href="https://wiki.debian.org/Apt">Debian公式Wiki - Advanced Package Tool</a></p>
 </blockquote>
 <h2 id="パッケージ管理Aptで行われること"><a href="#パッケージ管理Aptで行われること" class="headerlink" title="パッケージ管理Aptで行われること"></a>パッケージ管理Aptで行われること</h2><p>パッケージ管理Aptでは、パッケージ情報の参照、追加、更新、削除を行います。</p>
 <h2 id="aptコマンド一覧"><a href="#aptコマンド一覧" class="headerlink" title="aptコマンド一覧"></a>aptコマンド一覧</h2><p>aptコマンドの一覧と使用例は、以下のページを参照しました。</p>
 <blockquote>
-<p><a href="https://linuxfan.info/package-management-ubuntu" target="_blank" rel="noopener">aptコマンドを使ったパッケージ管理</a></p>
+<p><a target="_blank" rel="noopener" href="https://linuxfan.info/package-management-ubuntu">aptコマンドを使ったパッケージ管理</a></p>
 </blockquote>
 <h2 id="apt実行時の警告・エラー"><a href="#apt実行時の警告・エラー" class="headerlink" title="apt実行時の警告・エラー"></a>apt実行時の警告・エラー</h2><h3 id="1-apt-update-「リポジトリにファイルがありません」"><a href="#1-apt-update-「リポジトリにファイルがありません」" class="headerlink" title="1. apt update - 「リポジトリにファイルがありません」"></a>1. apt update - 「リポジトリにファイルがありません」</h3><p><strong>状況</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E: リポジトリ http:&#x2F;&#x2F;ppa.launchpad.net&#x2F;webupd8team&#x2F;atom&#x2F;ubuntu groovy Release には Release ファイルがありません。</span><br></pre></td></tr></table></figure>
@@ -190,7 +190,7 @@
 <p><strong>対策</strong></p>
 <p>以下のHPを参照して、サポートの切れたパッケージの更新を止めました。</p>
 <blockquote>
-<p><a href="https://hombre-nuevo.com/linux/linux0020/" target="_blank" rel="noopener">https://hombre-nuevo.com/linux/linux0020/</a></p>
+<p><a target="_blank" rel="noopener" href="https://hombre-nuevo.com/linux/linux0020/">https://hombre-nuevo.com/linux/linux0020/</a></p>
 </blockquote>
 <p><strong>対応方法</strong></p>
 <p>次のコマンドでapt updateから該当のパッケージの外します。</p>

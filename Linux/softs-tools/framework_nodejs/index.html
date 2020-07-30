@@ -156,13 +156,13 @@
 <div class="row mx-3 my-0">
     <div class="col-12 mx-auto mx-0 my-0 px-0">
         <p class="excerpt mx-3 my-0">
-            JavaScript実行環境Node.jsを、Linux Debian10にインストールしました。インストールに必要な手順を解説します。
+            JavaScriptのアプリケーション開発のため、JavaScript実行環境Node.jsをインストールしました。Linux Debian10にインストール手順とセットアップ方法について調べてみました。
         </p>
     </div>
 </div>
 
 <div class="row mx-3 my-0">
-    <div class="col-12 col-md-8 mx-3 mx-auto mt-3 mb-0 border">
+    <div class="col-12 col-md-8 mx-3 mx-auto mt-3 mb-3 border">
       <p class="mx-3 my-3 h6 text-center">目次</p>
       <div class="mx-3 my-1">
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript%E7%92%B0%E5%A2%83-Node-js"><span class="toc-number">1.</span> <span class="toc-text">JavaScript環境 - Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="toc-number">2.</span> <span class="toc-text">インストールに必要なコマンド</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86"><span class="toc-number">3.</span> <span class="toc-text">インストール手順</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">インストール方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yarn%E3%81%AE%E8%BF%BD%E5%8A%A0%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><span class="toc-number">5.</span> <span class="toc-text">yarnの追加インストール</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E7%B5%90%E6%9E%9C%E3%81%A8%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%A2%BA%E8%AA%8D"><span class="toc-number">6.</span> <span class="toc-text">インストール結果とバージョン確認</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%BE%E3%81%A8%E3%82%81"><span class="toc-number">7.</span> <span class="toc-text">まとめ</span></a></li></ol>
@@ -173,16 +173,14 @@
 <div class="row mx-3 mt-0 mb-3">
     <div class="col-12 mx-auto mx-0 my-0 px-0">
         <div class="col-12 mx-3 my-0">
-    <h2 id="JavaScript環境-Node-js"><a href="#JavaScript環境-Node-js" class="headerlink" title="JavaScript環境 - Node.js"></a>JavaScript環境 - Node.js</h2><p>Node.jsは、JavaScriptの実行環境で、Googleによって開発されました。JavaScriptで様々なネットワークアプリケーションを処理・実行できます。</p>
+    <h2 id="JavaScript環境-Node-js"><a href="#JavaScript環境-Node-js" class="headerlink" title="JavaScript環境 - Node.js"></a>JavaScript環境 - Node.js</h2><p>Node.jsはJavaScriptの実行環境で、Googleによって開発されました。</p>
+<p>Node.js上ではいろいろなアプリケーションを開発することができます。例えばJavaScriptで記述されたサーバーサイドアプリケーションの構築、JavaScriptをベースとしたネットワークアプリケーション作成などを行うことができます。</p>
 <blockquote>
-<p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js公式ページ（英語）</a></p>
-</blockquote>
-<blockquote>
-<p><a href="https://nodejs.org/ja/" target="_blank" rel="noopener">Node.js公式ページ（日本語）</a></p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/ja/">Node.js公式ページ（日本語）</a></p>
 </blockquote>
 <p>公式ページによれば、Node.jsのインストール方法にはパッケージ、コマンドラインなどいろいろな方法が用意されています。</p>
 <blockquote>
-<p><a href="https://github.com/nodesource/distributions/blob/master/README.md#debinstall" target="_blank" rel="noopener">Node.js Binary Distribution</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions/blob/master/README.md#debinstall">Node.js Binary Distribution</a></p>
 </blockquote>
 <p>コマンドラインのインストール方法により、Node.jsをインストールしました。</p>
 <h2 id="インストールに必要なコマンド"><a href="#インストールに必要なコマンド" class="headerlink" title="インストールに必要なコマンド"></a>インストールに必要なコマンド</h2><p>curl、bash、apt-get update、apt-get install、apt-key、echo、tee</p>
@@ -193,7 +191,7 @@
 <p>（npm以外にYarnを必要とする場合）<br>3. Yarnの認証キー取得、リポジトリに設定<br>4. 安定バージョンに固定<br>5. OSのリポジトリ更新とYarnのインストール</p>
 <h2 id="インストール方法"><a href="#インストール方法" class="headerlink" title="インストール方法"></a>インストール方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_14.x | bash -</span><br><span class="line">apt-get install -y nodejs</span><br></pre></td></tr></table></figure>
 
-<h2 id="yarnの追加インストール"><a href="#yarnの追加インストール" class="headerlink" title="yarnの追加インストール"></a>yarnの追加インストール</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"deb https://dl.yarnpkg.com/debian/ stable main"</span> | sudo tee /etc/apt/sources.list.d/yarn.list</span><br><span class="line">deb https://dl.yarnpkg.com/debian/ stable main</span><br><span class="line"></span><br><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install yarn</span><br></pre></td></tr></table></figure>
+<h2 id="yarnの追加インストール"><a href="#yarnの追加インストール" class="headerlink" title="yarnの追加インストール"></a>yarnの追加インストール</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb https://dl.yarnpkg.com/debian/ stable main&quot;</span> | sudo tee /etc/apt/sources.list.d/yarn.list</span><br><span class="line">deb https://dl.yarnpkg.com/debian/ stable main</span><br><span class="line"></span><br><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install yarn</span><br></pre></td></tr></table></figure>
 
 <h2 id="インストール結果とバージョン確認"><a href="#インストール結果とバージョン確認" class="headerlink" title="インストール結果とバージョン確認"></a>インストール結果とバージョン確認</h2><p>JavaScript環境Node.jsと、パージョン管理npm、Yarnのインストール結果とバージョン確認です（2020年7月補足）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v14.5.0</span><br><span class="line"></span><br><span class="line">npm -v</span><br><span class="line">6.14.5</span><br><span class="line"></span><br><span class="line">yarn -v</span><br><span class="line">1.22.4</span><br></pre></td></tr></table></figure>
