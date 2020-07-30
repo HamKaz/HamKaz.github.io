@@ -132,6 +132,7 @@ ol li, ol a {
 /* General - list
 —————————————————————————————————————————————————————————————————————— */
 ul {
+	margin-top: 0rem;
 	padding-top: 0.25rem;
 	padding-left: 0;
 	padding-bottom: 0;
@@ -142,18 +143,18 @@ ul {
 }
 
 ul li, ul a {
-	font-size: 0.8rem;
 	margin-bottom: 0rem;
-	line-height: 1rem;
-	padding-top: 1rem;
+	padding-top: 0.25rem;
 	padding-left: 0.5rem;
-	padding-bottom: 0.5rem;
+	padding-bottom: 0.25rem;
 	padding-right: 0.5rem;
+	font-size: 0.8rem;
+	line-height: 1rem;
 	list-style: none;
 }
 
 ul li ul {
-	margin-top: 1rem;
+	margin-top: 0.25rem;
 }
 
 ul li ul li {
@@ -161,8 +162,8 @@ ul li ul li {
 }
 
 main div div ul, main div div div ul {
-	margin: 1rem 4rem 1rem 4rem;
-	padding: 0.5rem 2rem 1rem 2rem;
+	margin: 1rem 2rem 1rem 2rem;
+	padding: 0.5rem 1rem 1rem 1rem;
 	color: #333;
 	background-color: #fafaff;
     border: 1px dotted #008cff;
