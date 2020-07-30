@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+        <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+    
+
+    <title>Linuxで運用 - hamkazの技術ブログ</title>
+
+    
+        <meta name="description" content="ネットワークアプリケーションを自習しながら作ってみます。">
+    
+
+    
+        <meta name="author" content="hamkaz">
+    
+
+    
+        <meta property="og:title" content="Linuxで運用"/>
+    
+
+    <meta property="og:site_name" content="hamkazの技術ブログ"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="/css/styles.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+    <body>
+        <div class="container">
+    <header class="navbar navbar-light pt-3">
+        <a class="navbar-brand navbar-toggleable-sm" href="/">
+            <span class="title d-none d-sm-block">hamkazの技術ブログ</span>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center mt-3 mt-md-0" id="navbarCollapse">
+            <span class="title d-block d-sm-none">hamkazの技術ブログ</span>
+            <ul class="navbar-nav ml-auto my-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                
+            </ul>
+            <hr class="hidden-md-up" />
+        </div>
+    </header>
+</div>
+
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-12 col-lg-8 mx-0 my-0 px-0">
+                    <main class="card mx-2 my-2 sidebar-sticky">
+                        
+
+
+    <div class="row mx-auto mx-3 mt-3 mb-3">
+        
+
+
+    <p class="h4 text-center text-md-left mx-0 mt-3 mb-0">
+        Linuxで運用
+    </p>
+
+
+    </div>
+    <div class="row mx-3 mt-3 mb-3">
+        <div class="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-6 mx-auto mx-0 my-0 px-0">
+            <div class="flex">
+    <div class="flex-item">
+        <figure class="image-trim mb-0">
+            
+                /images/linux.png
+                <img src="/images/linux.png" alt="Linuxで運用">
+            
+        </figure>
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div class="row mx-3 mt-3 mb-3">
+        <div class="mx-3 my-0">
+    <p>なぜOSをわざわざLinuxにするのでしょう？</p>
+<p>今とこれからの時代に合わせて考えると、Webアプリケーションとスマホ利用がますます進んでいくと思われます。</p>
+<p>今後に合わせ、私なりにLinuxを選んだ理由を書き連ねてみました。</p>
+<h2 id="私なりのOS選び"><a href="#私なりのOS選び" class="headerlink" title="私なりのOS選び"></a>私なりのOS選び</h2><p>OSにはWindows、Mac、Linuxといろいろあります。では、自分のやりたいことのためにOSを選ぶのでしょうか？OSを選んでからやりたいことを追求するのでしょうか？</p>
+<p>そう言われてみると「OS選び」とはなかなか難しいものです。たいていPCを買ってインストール済みのOSを使って何ができるか、そういう観点でソフトウエアやアプリケーションを選ぶことが多いのではと思います。</p>
+<p>かつてはWindows、Mac OSを使用していた私は、最近Linuxに乗り換えました。日常使用するメインOSをDebian10に一新しました。そしてブログ運営やアプリケーション開発環境をDebian上で整えてみました。</p>
+<h3 id="Linuxのメリット・デメリット"><a href="#Linuxのメリット・デメリット" class="headerlink" title="Linuxのメリット・デメリット"></a>Linuxのメリット・デメリット</h3><p>Linuxは難しい、一部の人のOSだと言われてきました。しかし最近ではインストールも簡単になり、グラフィカルインターフェースは洗練されてきて使いやすくなり、動作も安定しています。</p>
+<p>スマホ・タブレット・各種携帯端末・IoT機器などのアプリケーションは、最近ではUnixやLinuxに基づいた技術を使われることが多くなり、特にアプリとブラウザの両方で、同じアプリケーションやサービスを利用できるようになりました。</p>
+<p>さまざまなコミュニティの努力のおかげでソフトウエアが充実してきた結果、多くの企業が力を入れ始め、企業で開発されたChromeやVisual Studio Codeなどのソフトウエアが使えるようになったことから、WindowsやMac OSと遜色なく使えるようになってきました。</p>
+<p>しかしながらLinuxは、OSとハードの相性問題の解決に技術力が必要で、多様なディストリビューションが選びにくいなど、WindowsやMacに比べてまだまだ敷居の高いOSであることも事実です。</p>
+<h3 id="Windowsのメリット・デメリット"><a href="#Windowsのメリット・デメリット" class="headerlink" title="Windowsのメリット・デメリット"></a>Windowsのメリット・デメリット</h3><p>Windowsは事務系、製造系に強いOSです。そして個人利用でスタンダードとなっているOSです。</p>
+<p>事務・経理・財務・資産管理などの事務処理や、製造業の設計・生産管理分野をはじめとしてあらゆる産業分野で使われるようになりました。</p>
+<p>大量のWindows搭載PCが市場に出回り、コストメリットを重要視する多数の企業に受け入れられたことからWindowsの普及が一気に進みました。またハードウエアの要求性能に合わせてカスタマイズができることから、エントリー層からハイエンド層までWindows PCが普及しました。</p>
+<p>オフィスソフトウエアだけでなく、CAD・CAM・制御監視ソフトウエア、そして多種多様なソフトウエアがWindows搭載PC上で動作するようになり、デザインやマルチメディアのソフトウエアもWindowsをメインプラットフォームとするようになりました。</p>
+<p>しかしWindows OSは、デジタルライセンス認証、Windowsアップデートの頻度、レジストリの汚染管理、コンピュータウィルス対策など、さまざまな問題を抱えています。</p>
+<p>また予期しないWindowsのシャットダウン、リカバリーの難しさ、モバイル機器との連動の難しさなどから、Windows PCを敬遠し、ブラウザベースのアプリケーションに乗り換える動きも目立っています。</p>
+<h3 id="Macのメリット・デメリット"><a href="#Macのメリット・デメリット" class="headerlink" title="Macのメリット・デメリット"></a>Macのメリット・デメリット</h3><p>AppleのMac OSは、開発経緯からしてデザイン・マルチメディア・Web分野に強いOSです。Unixをベースとして開発されており、OSは安定して動作します。</p>
+<p>Windows10が発表された頃から私は、WindowsからMac OSに移行して使用するようになりました。</p>
+<p>ハードウエアとしてのMac製品はハイエンドからミドル層までをターゲットとしており、クリエイティブ領域やWeb開発などの分野で多く使用されています。</p>
+<p>多くのデザインやマルチメディアをターゲットとするアプリケーションがMac OSをベースに開発されており、また多様なフォント、直感的な操作感、製品群で一貫した使用感などから、多くのユーザーが存在します。</p>
+<p>しかし最近では、ハードウエアのカスタマイズ性、他のフラットフォームで同じアプリケーションが動作することから、Mac OSでなければならない理由は無くなってきました。</p>
+<p>さらに開発環境のマルチプラットフォーム化が進んでいることや、モバイル端末への対応、仮想環境環境の充実、ブラウザアプリケーションの高度化などから、Mac OSでなければならない理由は少なくなってきていました。</p>
+<h3 id="Linuxへの移行"><a href="#Linuxへの移行" class="headerlink" title="Linuxへの移行"></a>Linuxへの移行</h3><p>そんな中、PCにUbuntuをインストールする機会がありました。Ubuntuは、Linux Debian系のディストリビューションの一つで、RedHat系のCentOSと並んでよく使用されます。</p>
+<p>実は身近にあるWindows機がクラッシュを頻発したことから、Ubuntuのインストールを行いました。試験的にデュアルブート運用を行ったところUbuntuが安定動作したことから、Linuxへの移行を真剣に検討するようになりました。</p>
+<p>Chromeブラウザをベースとした日常のアプリケーションも、その使用感がWindowsやMacと遜色ないことから、思い切ってLinux環境に完全に移行しました。</p>
+<h3 id="PCハードウエアとUbuntuの相性"><a href="#PCハードウエアとUbuntuの相性" class="headerlink" title="PCハードウエアとUbuntuの相性"></a>PCハードウエアとUbuntuの相性</h3><p>2020年春先、リリースされているUbuntuのLTSバージョンは20.04 LTSでした。</p>
+<p>Ubuntu 20.04 LTSをインストールしたところ、ブート時間が長い（60秒程度）、IMEエラーが発生する（ibus、Mozc）といった問題が確認されました。そこでKernelの起動メッセージを確認して、PCのBIOS設定を修正したり、PCセッティングを変更してみました。</p>
+<p>しかしながらUbuntuのデスクトップ環境とPCハードウエアと相性が合わなかったことから、ディストリビューションを変えてみようと考えて、Ubuntuの本家にあたるDebianに移行してみました。</p>
+<h3 id="Debian-10-04による安定運用の実現"><a href="#Debian-10-04による安定運用の実現" class="headerlink" title="Debian 10.04による安定運用の実現"></a>Debian 10.04による安定運用の実現</h3><p>2020年春先、リリースされているDebianのバージョンは、10.04でした。リリースからそれほど時間の立っていませんでした。</p>
+<p>Debianを最低限の環境構築を行ったところ、Ubuntuで見られたような不具合は発生しませんでした。DebianとPCハードウエアでの相性問題が発生しなかったため、Debianのデスクトップ環境をCinnamonで構築し、運用を始めました。</p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>もともと私はブラウザアプリケーションを多用したため、Windows PCやMacに固有のアプリケーションを使用していなかったため、Linuxにスムースに移行を果たすことができました。唯一困っていたMacでのビデオ編集もLinuxのビデオ編集に切り替えました。</p>
+<p>Mac OSに関しては2020年秋にはMac OS Big Surに移行します。また同時に、Apple Macの主力がIntel CoreシリーズからARMに変わります。</p>
+<p>移行期間が２年間と発表されていることからして、PowerPCからIntelへの移行以来の大変革と試行錯誤が想定され、使用感や操作感も大きく変わることが予測されます。</p>
+<p>そのためメインOSをLinuxとして、モバイル及びWebアプリケーション中心の運用とすることにしました。</p>
+
+</div>
+
+    </div>
+
+
+                    </main>
+                </div>
+                <div class="col-12 col-lg-4 mx-0 my-0 px-0">
+                    <aside class="card mx-2 my-2 sidebar-sticky">
+    <div class="mx-3 mt-3 mb-0">
+    </div>
+    
+        
+            
+
+<section class="row mx-3 mt-0 mb-0">
+    <div class="col-12 mx-0 my-0 px-0">
+		<div class="row">
+
+            
+                <div class="col-12 col-sm-8 col-md-4 col-lg-12 mx-auto mx-3 my-0">
+                    <div class="flex">
+    <div class="flex-item">
+        <figure class="image-trim mb-0">
+            
+                <img src="/images/default.jpg" alt="Linuxで運用">
+            
+        </figure>
+    </div>
+</div>
+
+                </div>
+                <div class="col-12 col-sm-8 col-md-8 col-lg-12 mx-auto mx-3 my-0">
+                    <p class="h5 text-center mx-0 mt-3 mb-0">
+                        hamkaz
+                    </p>
+    	        </div>
+            
+
+        </div>
+    </div>
+</section>
+
+            <div class="mx-3 my-0">
+    <hr>
+</div>
+
+        
+            
+
+<section class="row mx-3 mt-0 mb-0">
+    <div class="col-12 mx-0 my-0 px-0">
+		<div class="row">
+
+            
+                <div class="col-12 mx-auto mx-3 my-0">
+                    
+                        <p class="h5 text-center">カテゴリ一覧</p>
+                    
+                </div>
+                <div class="col-12 mx-auto mx-3 my-0">
+                    
+                        <ul>
+                            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/OS/">OS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Tips/">Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/command/">command</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/environment/">environment</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/package/">package</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/softs-tools/">softs-tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/storage/">storage</a></li></ul></li></ul>
+                        </ul>
+                    
+                </div>
+
+            
+
+        </div>
+    </div>
+</section>
+
+            <div class="mx-3 my-0">
+    <hr>
+</div>
+
+        
+            
+
+<section class="row mx-3 mt-0 mb-0">
+    <div class="col-12 mx-0 my-0 px-0">
+		<div class="row">
+
+            
+                <div class="col-12 mx-auto mx-3 my-0">
+                    
+                        <p class="h5 text-center">アーカイブ一覧</p>
+                    
+                </div>
+                <div class="col-12 mx-auto mx-3 my-0">
+                    
+                        <ul>
+                            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020-07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">2020-06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">2020-05</a></li></ul>
+                        </ul>
+                    
+                </div>
+
+            
+
+        </div>
+    </div>
+</section>
+
+            <div class="mx-3 my-0">
+    <hr>
+</div>
+
+        
+            
+
+<section class="row mx-3 mt-0 mb-0">
+    <div class="col-12 mx-0 my-0 px-0">
+		<div class="row">
+
+            
+                <div class="col-12 mx-auto mx-3 my-0">
+                    
+                        <p class="h5 text-center">タグ一覧</p>
+                    
+                </div>
+                <div class="col-12 mx-auto mx-3 my-0">
+                    
+                        <ul>
+                            <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Debian/" style="font-size: 14px;">Debian</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/GRUB/" style="font-size: 10px;">GRUB</a> <a href="/tags/Google-Drive/" style="font-size: 10px;">Google Drive</a> <a href="/tags/JavaScript%E7%92%B0%E5%A2%83/" style="font-size: 16px;">JavaScript環境</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/Linux/" style="font-size: 18px;">Linux</a> <a href="/tags/Linuxbrew/" style="font-size: 10px;">Linuxbrew</a> <a href="/tags/Node-js/" style="font-size: 16px;">Node.js</a> <a href="/tags/OS/" style="font-size: 10px;">OS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/Visual-Studio-Code/" style="font-size: 10px;">Visual Studio Code</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/apt/" style="font-size: 10px;">apt</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/brew/" style="font-size: 10px;">brew</a> <a href="/tags/fping/" style="font-size: 10px;">fping</a> <a href="/tags/n/" style="font-size: 10px;">n</a> <a href="/tags/npm/" style="font-size: 12px;">npm</a> <a href="/tags/samba/" style="font-size: 10px;">samba</a> <a href="/tags/snap/" style="font-size: 10px;">snap</a> <a href="/tags/tree/" style="font-size: 10px;">tree</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA/" style="font-size: 10px;">アプリケーション開発</a> <a href="/tags/%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E5%88%87%E6%9B%BF/" style="font-size: 10px;">ウィンドウ切替</a> <a href="/tags/%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF/" style="font-size: 14px;">エディタ</a> <a href="/tags/%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">オンラインストレージ</a> <a href="/tags/%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8/" style="font-size: 10px;">クラウドストレージ</a> <a href="/tags/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 14px;">コマンド</a> <a href="/tags/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E6%8A%80%E8%A1%93/" style="font-size: 10px;">コンテナ技術</a> <a href="/tags/%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88/" style="font-size: 10px;">システムフォント</a> <a href="/tags/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88/" style="font-size: 10px;">スクリーンショット</a> <a href="/tags/%E3%83%84%E3%83%AA%E3%83%BC%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">ツリー探索</a> <a href="/tags/%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">ディレクトリ探索</a> <a href="/tags/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E6%A9%9F%E5%99%A8/" style="font-size: 10px;">ネットワーク機器</a> <a href="/tags/%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E5%88%87%E6%9B%BF/" style="font-size: 10px;">バージョン切替</a> <a href="/tags/%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86/" style="font-size: 20px;">パッケージ管理</a> <a href="/tags/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC/" style="font-size: 10px;">ファイルサーバー</a> <a href="/tags/%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">フォルダ探索</a> <a href="/tags/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6/" style="font-size: 10px;">ブラウザ</a> <a href="/tags/%E3%83%96%E3%83%BC%E3%83%88%E3%83%AD%E3%83%BC%E3%83%80%E3%83%BC/" style="font-size: 10px;">ブートローダー</a> <a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/" style="font-size: 16px;">プログラミング</a> <a href="/tags/%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3/" style="font-size: 10px;">マークダウン</a> <a href="/tags/%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E5%88%87%E6%9B%BF/" style="font-size: 10px;">ワークスペース切替</a> <a href="/tags/%E4%BB%AE%E6%83%B3%E7%92%B0%E5%A2%83/" style="font-size: 10px;">仮想環境</a> <a href="/tags/%E4%BD%BF%E7%94%A8IP%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">使用IP探索</a> <a href="/tags/%E5%85%A5%E5%8A%9B%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89/" style="font-size: 10px;">入力メソッド</a> <a href="/tags/%E5%8B%95%E7%94%BB%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3/" style="font-size: 10px;">動画キャプチャ</a> <a href="/tags/%E7%9F%AD%E7%B8%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/" style="font-size: 10px;">短縮コマンド</a> <a href="/tags/%E8%AA%8D%E8%A8%BC%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3/" style="font-size: 10px;">認証ログイン</a>
+                        </ul>
+                    
+                </div>
+
+            
+
+        </div>
+    </div>
+</section>
+
+            <div class="mx-3 my-0">
+    <hr>
+</div>
+
+        
+            
+
+<section class="row mx-3 mt-0 mb-0">
+    <div class="col-12 mx-0 my-0 px-0">
+		<div class="row">
+
+            
+                <div class="col-12 mx-auto mx-3 my-0">
+                    
+                        <p class="h5 text-center mb-3">最近の投稿から</p>
+                    
+                </div>
+                <div class="col-12 mx-auto mx-3 my-0">
+                    
+                        
+                            <ul class="mx-0 my-0 px-0 py-0">
+                                <li class="date h6 mx-0 my-0 px-0 py-0">
+                                    2020-07-29
+                                </li>
+                                <li class="h6 mx-0 mt-0 mb-2 px-0 py-0">
+                                    <a class="px-0 py-0" href="/Linux/environment/container_docker/">仮想環境をLinuxのコンテナ技術で実現するDockerについて理解する</a>
+                                </li>
+                            </ul>
+                        
+                            <ul class="mx-0 my-0 px-0 py-0">
+                                <li class="date h6 mx-0 my-0 px-0 py-0">
+                                    2020-07-23
+                                </li>
+                                <li class="h6 mx-0 mt-0 mb-2 px-0 py-0">
+                                    <a class="px-0 py-0" href="/Linux/softs-tools/package_n/">Node.jsのバージョン管理をnで切り替えて運用する</a>
+                                </li>
+                            </ul>
+                        
+                            <ul class="mx-0 my-0 px-0 py-0">
+                                <li class="date h6 mx-0 my-0 px-0 py-0">
+                                    2020-07-18
+                                </li>
+                                <li class="h6 mx-0 mt-0 mb-2 px-0 py-0">
+                                    <a class="px-0 py-0" href="/Linux/softs-tools/editor_visual-studio-code/">Visual Studio CodeをLinux Debian10にインストールする</a>
+                                </li>
+                            </ul>
+                        
+                            <ul class="mx-0 my-0 px-0 py-0">
+                                <li class="date h6 mx-0 my-0 px-0 py-0">
+                                    2020-07-18
+                                </li>
+                                <li class="h6 mx-0 mt-0 mb-2 px-0 py-0">
+                                    <a class="px-0 py-0" href="/Linux/package/package_snap/">ディストリビューションによらないパッケージ管理snapを理解する</a>
+                                </li>
+                            </ul>
+                        
+                            <ul class="mx-0 my-0 px-0 py-0">
+                                <li class="date h6 mx-0 my-0 px-0 py-0">
+                                    2020-06-17
+                                </li>
+                                <li class="h6 mx-0 mt-0 mb-2 px-0 py-0">
+                                    <a class="px-0 py-0" href="/Linux/storage/network-storage_google-drive/">クラウドストレージGoogleDriveをローカルにマウントする</a>
+                                </li>
+                            </ul>
+                        
+                    
+                </div>
+
+            
+
+        </div>
+    </div>
+</section>
+
+            <div class="mx-3 my-0">
+    <hr>
+</div>
+
+        
+    
+    <div class="h6 text-center mb-3">
+        <a href="#">
+            <i class="fa fa-long-arrow-up mr-2"></i>トップに戻る
+        </a>
+    </div>
+</aside>
+
+                </div>
+            </div>
+		</div>
+		<!-- Footer -->
+<div class="container">
+    <footer class="text-center mt-5 py-5">
+        
+
+    <a href="https://twitter.com/?lang=en" target="_blank"><i class="fa fa-twitter mx-2"></i></a>
+
+
+
+    <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube mx-2"></i></a>
+
+
+    <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram mx-2"></i></a>
+
+
+
+
+
+
+
+
+        <p class="h6 text-center mx-0 mt-5 mb-0">
+              Contents, Copyright (c) 2020- hamkaz<br><br>
+              Hexo theme simple, MIT License 2020- hamkaz
+        </p>
+    </footer>
+</div>
+
+		<!-- Include Javascript -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+</html>
