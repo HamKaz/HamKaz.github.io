@@ -175,14 +175,14 @@
         <div class="col-12 mx-3 my-0">
     <h2 id="ブラウザ-Google-Chrome"><a href="#ブラウザ-Google-Chrome" class="headerlink" title="ブラウザ - Google Chrome"></a>ブラウザ - Google Chrome</h2><p>Chromeは、Windows, Mac, Linuxのプラットフォーム上で使用できるWebブラウザで、Googleにより開発されました。</p>
 <blockquote>
-<p><a href="https://www.google.com/intl/ja_jp/chrome/" target="_blank" rel="noopener">Chrome公式ページ（日本語）</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/intl/ja_jp/chrome/">Chrome公式ページ（日本語）</a></p>
 </blockquote>
 <p>さまざまなデバイスでプライバシー情報の同期を取りながら、セキュリティに配慮があり、プラグインや開発ツールも充実した使い勝手の良いブラウザです。</p>
 <blockquote>
-<p><a href="https://www.google.com/linuxrepositories/" target="_blank" rel="noopener">Google Linux Software Repositories</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/linuxrepositories/">Google Linux Software Repositories</a></p>
 </blockquote>
 <blockquote>
-<p><a href="https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-debian-10/" target="_blank" rel="noopener">参考ページ</a></p>
+<p><a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-debian-10/">参考ページ</a></p>
 </blockquote>
 <p>ChromeをコマンドラインでLinux Debian10にインストールしました。</p>
 <h2 id="インストールに必要なコマンド"><a href="#インストールに必要なコマンド" class="headerlink" title="インストールに必要なコマンド"></a>インストールに必要なコマンド</h2><p>apt、apt-key、sh、wget</p>
@@ -209,7 +209,7 @@
 <h3 id="1-wgetのインストール"><a href="#1-wgetのインストール" class="headerlink" title="1. wgetのインストール"></a>1. wgetのインストール</h3><p>（上記参照）</p>
 <h3 id="2-Googleの認証キーを取得"><a href="#2-Googleの認証キーを取得" class="headerlink" title="2. Googleの認証キーを取得"></a>2. Googleの認証キーを取得</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-認証キーをローカルOSのリポジトリに追加"><a href="#3-認証キーをローカルOSのリポジトリに追加" class="headerlink" title="3. 認証キーをローカルOSのリポジトリに追加"></a>3. 認証キーをローカルOSのリポジトリに追加</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">sudo sh -c <span class="string">'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" &gt;&gt; /etc/apt/sources.list.d/google.list'</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-認証キーをローカルOSのリポジトリに追加"><a href="#3-認証キーをローカルOSのリポジトリに追加" class="headerlink" title="3. 認証キーをローカルOSのリポジトリに追加"></a>3. 認証キーをローカルOSのリポジトリに追加</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb http://dl.google.com/linux/chrome/deb/ stable main&quot; &gt;&gt; /etc/apt/sources.list.d/google.list&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="4-OSのリポジトリを更新"><a href="#4-OSのリポジトリを更新" class="headerlink" title="4. OSのリポジトリを更新"></a>4. OSのリポジトリを更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 
@@ -220,7 +220,7 @@
 
 <p>対応方法を調べたところ、次のページを見つけました。</p>
 <blockquote>
-<p><a href="https://askubuntu.com/questions/766354/how-to-fix-update-problem-on-ubuntu-16-04" target="_blank" rel="noopener">https://askubuntu.com/questions/766354/how-to-fix-update-problem-on-ubuntu-16-04</a></p>
+<p><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/766354/how-to-fix-update-problem-on-ubuntu-16-04">https://askubuntu.com/questions/766354/how-to-fix-update-problem-on-ubuntu-16-04</a></p>
 </blockquote>
 <p>Eliah KaganさんとAveryFreemanさんによれば、/etc/apt/sources.list.d/google.list内の以下を行をコメントアウトするように書かれていました。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/apt/sources.list.d</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">nano google.list</span><br></pre></td></tr></table></figure>

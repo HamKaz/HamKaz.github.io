@@ -175,7 +175,7 @@
         <div class="col-12 mx-3 my-0">
     <h2 id="多数のOSからファイル共有できるようにするには？"><a href="#多数のOSからファイル共有できるようにするには？" class="headerlink" title="多数のOSからファイル共有できるようにするには？"></a>多数のOSからファイル共有できるようにするには？</h2><p>複数台の異なるPCでファイル共有をしようと考えたとき、ファイルサーバーもしくはNASが必要となります。</p>
 <blockquote>
-<p><a href="https://ja.wikipedia.org/wiki/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81%E3%83%88%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8" target="_blank" rel="noopener">ネットワークアタッチストレージ(NAS)</a></p>
+<p><a target="_blank" rel="noopener" href="https://ja.wikipedia.org/wiki/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81%E3%83%88%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8">ネットワークアタッチストレージ(NAS)</a></p>
 </blockquote>
 <p>LAN上にNASを構築しようとした場合、NAS専用機を購入するのではなく、自前でNASを構築するという選択をしました。</p>
 <p>まずNAS専用OSとしてOpenMediaVaultなどを検討しましたが、要求されるハードスペックが高いなど手軽に実現できないことが分かりました。</p>
@@ -188,35 +188,35 @@
 <p>今回は、Linuxマシンをファイルサーバーにするため、Linux上にSambaサーバーを構成、Linux、Mac、Window機をSambaクライアントにし、小規模なネットワークでのファイル共有を実現しました。</p>
 <h2 id="Linux上にSambaサーバーを構成する。"><a href="#Linux上にSambaサーバーを構成する。" class="headerlink" title="Linux上にSambaサーバーを構成する。"></a>Linux上にSambaサーバーを構成する。</h2><h3 id="1-インストール"><a href="#1-インストール" class="headerlink" title="1. インストール"></a>1. インストール</h3><p>Samba Serverをインストールします。</p>
 <blockquote>
-<p><a href="https://wiki.debian.org/SambaServerSimple" target="_blank" rel="noopener">Install Samba Server</a></p>
+<p><a target="_blank" rel="noopener" href="https://wiki.debian.org/SambaServerSimple">Install Samba Server</a></p>
 </blockquote>
 <h3 id="2-Sambaデーモン"><a href="#2-Sambaデーモン" class="headerlink" title="2. Sambaデーモン"></a>2. Sambaデーモン</h3><p>Samba Serverを常駐プロセス（デーモン化）します。</p>
 <blockquote>
-<p><a href="https://ohzeki.hatenablog.com/entry/20160916/1473998215" target="_blank" rel="noopener">ubuntuでSambaの再起動</a></p>
+<p><a target="_blank" rel="noopener" href="https://ohzeki.hatenablog.com/entry/20160916/1473998215">ubuntuでSambaの再起動</a></p>
 </blockquote>
 <h3 id="3-Sambaにおけるユーザー管理"><a href="#3-Sambaにおけるユーザー管理" class="headerlink" title="3. Sambaにおけるユーザー管理"></a>3. Sambaにおけるユーザー管理</h3><p>Sambaにおけるユーザー管理において、ログインユーザーはLinuxユーザーとSambaユーザーで同じとなる。しかしパスワードは<strong>LinuxのログインパスワードとSambaのログインパスワードで異なる</strong>点を理解する必要があります。</p>
 <blockquote>
-<p><a href="https://askubuntu.com/questions/362852/samba-fails-to-add-a-user-entry-how-do-i-fix-this" target="_blank" rel="noopener">Samba fails to add a user entry, how do I fix this?</a></p>
+<p><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/362852/samba-fails-to-add-a-user-entry-how-do-i-fix-this">Samba fails to add a user entry, how do I fix this?</a></p>
 </blockquote>
 <p><strong>Sambaユーザーを作成します</strong></p>
 <blockquote>
-<p><a href="https://eng-entrance.com/linux-user-add" target="_blank" rel="noopener">実は簡単！Linuxユーザの作成方法と追加方法</a></p>
+<p><a target="_blank" rel="noopener" href="https://eng-entrance.com/linux-user-add">実は簡単！Linuxユーザの作成方法と追加方法</a></p>
 </blockquote>
 <p><strong>Sambaパスワードを設定します</strong></p>
 <p>pdbeditで作成します。</p>
 <blockquote>
-<p><a href="http://www.samba.gr.jp/project/translation/3.5/htmldocs/manpages-3/pdbedit.8.html" target="_blank" rel="noopener">pdbedit — SAM データベース (Samba ユーザーのデータベース) を管理する</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.samba.gr.jp/project/translation/3.5/htmldocs/manpages-3/pdbedit.8.html">pdbedit — SAM データベース (Samba ユーザーのデータベース) を管理する</a></p>
 </blockquote>
 <p>Sambaユーザーの一覧は、次のようにして確認します。</p>
 <blockquote>
-<p><a href="http://april.fool.jp/blogs/2014/07/23/%E3%83%A1%E3%83%A2-samba%E3%81%AE%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%A6/" target="_blank" rel="noopener">SAMBAのパスワードファイルに登録されているユーザ一覧を表示するには</a></p>
+<p><a target="_blank" rel="noopener" href="http://april.fool.jp/blogs/2014/07/23/%E3%83%A1%E3%83%A2-samba%E3%81%AE%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%A6/">SAMBAのパスワードファイルに登録されているユーザ一覧を表示するには</a></p>
 </blockquote>
 <h2 id="Linux上にSambaクライアント構築"><a href="#Linux上にSambaクライアント構築" class="headerlink" title="Linux上にSambaクライアント構築"></a>Linux上にSambaクライアント構築</h2><h3 id="smbclientのインストール"><a href="#smbclientのインストール" class="headerlink" title="smbclientのインストール"></a>smbclientのインストール</h3><p>Samba Serverをインストールします。</p>
 <blockquote>
-<p><a href="https://wiki.debian.org/SambaServerSimple" target="_blank" rel="noopener">Install Samba Client</a></p>
+<p><a target="_blank" rel="noopener" href="https://wiki.debian.org/SambaServerSimple">Install Samba Client</a></p>
 </blockquote>
 <h3 id="smbclientの使い方"><a href="#smbclientの使い方" class="headerlink" title="smbclientの使い方"></a>smbclientの使い方</h3><blockquote>
-<p><a href="http://leo.ec.t.kanazawa-u.ac.jp/manuals/samba-2.2.7b-ja-1.0/ja-htmldocs/smbclient.1.html" target="_blank" rel="noopener">smbclient</a></p>
+<p><a target="_blank" rel="noopener" href="http://leo.ec.t.kanazawa-u.ac.jp/manuals/samba-2.2.7b-ja-1.0/ja-htmldocs/smbclient.1.html">smbclient</a></p>
 </blockquote>
 <h3 id="Windowsからの接続"><a href="#Windowsからの接続" class="headerlink" title="Windowsからの接続"></a>Windowsからの接続</h3><h3 id="Macからの接続"><a href="#Macからの接続" class="headerlink" title="Macからの接続"></a>Macからの接続</h3><h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2>
 </div>

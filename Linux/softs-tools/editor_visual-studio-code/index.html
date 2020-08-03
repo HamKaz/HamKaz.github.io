@@ -175,11 +175,11 @@
         <div class="col-12 mx-3 my-0">
     <h2 id="プログラミングエディタ-Visual-Studio-Code"><a href="#プログラミングエディタ-Visual-Studio-Code" class="headerlink" title="プログラミングエディタ - Visual Studio Code"></a>プログラミングエディタ - Visual Studio Code</h2><p>AtomはMicrosoftにより開発されたプログラミングエディタで、Windows, Mac, Linuxといったプラットフォームで使用できます。</p>
 <blockquote>
-<p><a href="https://azure.microsoft.com/ja-jp/products/visual-studio-code/" target="_blank" rel="noopener">参考ページ：Visual Studio Code</a></p>
+<p><a target="_blank" rel="noopener" href="https://azure.microsoft.com/ja-jp/products/visual-studio-code/">参考ページ：Visual Studio Code</a></p>
 </blockquote>
 <p>Linuxでよく使われているプログラミングエディタにはAtomがあります。最近のプログラミング記事で、AtomからVisual Studio Codeへの移行をよく目にするようになり、Visual Studio Codeのインストール方法を調べてみました。</p>
 <blockquote>
-<p><a href="https://code.visualstudio.com/docs/setup/linux" target="_blank" rel="noopener">参考ページ：Running Visual Studio Code on Linux</a></p>
+<p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/setup/linux">参考ページ：Running Visual Studio Code on Linux</a></p>
 </blockquote>
 <p>解説によればインストール方法には、snap、debパッケージ、apt installの３種類が紹介されていました。</p>
 <p>今回は、認証キーを取得してapt installする方法でインストールして、Visual Studio Codeのプログラミングエディタとしての使い勝手と操作感をAtomと比較しました。</p>
@@ -203,7 +203,7 @@
 
 <h3 id="2-認証キーをOSのリポジトリに追加"><a href="#2-認証キーをOSのリポジトリに追加" class="headerlink" title="2. 認証キーをOSのリポジトリに追加"></a>2. 認証キーをOSのリポジトリに追加</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-Visual-Studio-Codeの認証キーをリモートから取得"><a href="#3-Visual-Studio-Codeの認証キーをリモートから取得" class="headerlink" title="3. Visual Studio Codeの認証キーをリモートから取得"></a>3. Visual Studio Codeの認証キーをリモートから取得</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">sudo sh -c <span class="string">'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" &gt; /etc/apt/sources.list.d/vscode.list'</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-Visual-Studio-Codeの認証キーをリモートから取得"><a href="#3-Visual-Studio-Codeの認証キーをリモートから取得" class="headerlink" title="3. Visual Studio Codeの認証キーをリモートから取得"></a>3. Visual Studio Codeの認証キーをリモートから取得</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">sudo sh -c <span class="string">&#x27;echo &quot;deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main&quot; &gt; /etc/apt/sources.list.d/vscode.list&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="4-httpsに対応したaptのインストール"><a href="#4-httpsに対応したaptのインストール" class="headerlink" title="4. httpsに対応したaptのインストール"></a>4. httpsに対応したaptのインストール</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">sudo apt-get install apt-transport-https</span><br></pre></td></tr></table></figure>
 
