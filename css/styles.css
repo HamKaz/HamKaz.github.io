@@ -332,3 +332,10 @@ kbd {
 	color: #111;
 	background-color: #ddd;
 }
+
+/* SNS share
+—————————————————————————————————————————————————————————————————————— */
+.twitter_share_link {
+    background-color: #00B0ED;
+    color: #fff;
+}

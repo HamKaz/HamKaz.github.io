@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+        <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    
+
+    <title>Git応用[1] Gitコマンド - hamkazの技術ブログ</title>
+
+    
+        <meta name="description" content="Gitコマンド">
+    
+
+    
+        <meta name="author" content="HamKaz">
+    
+
+    
+        <meta property="og:title" content="Git応用[1] Gitコマンド"/>
+    
+
+    <meta property="og:site_name" content="hamkazの技術ブログ"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="/css/styles.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+
+</head>
+
+    <body>
+        <div class="container">
+    <header class="navbar navbar-light pt-3">
+        <a class="navbar-brand navbar-toggleable-sm" href="/">
+            <span class="title d-none d-sm-block">hamkazの技術ブログ</span>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center mt-3 mt-md-0" id="navbarCollapse">
+            <span class="title d-block d-sm-none">hamkazの技術ブログ</span>
+            <ul class="navbar-nav ml-auto my-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                
+            </ul>
+            <hr class="hidden-md-up" />
+        </div>
+    </header>
+</div>
+
+        <div class="container">
+            <div class="row">
+                
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-8 mx-0 my-0 px-0">
+                    <main class="card mx-2 my-2 sidebar-sticky">
+                        <div class="row mx-3 mt-3 mb-0">
+    <div class="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-6 mx-auto mx-0 my-0 px-0">
+        <div class="flex">
+    <div class="flex-item">
+        <figure class="image-trim mb-0">
+            
+                <img src="/images/github.png" alt="Git応用[1] Gitコマンド">
+            
+        </figure>
+    </div>
+</div>
+
+    </div>
+</div>
+<div class="row mx-auto mx-3 my-0">
+    
+
+
+    <p class="h4 text-center text-md-left mx-0 mt-3 mb-0">
+        Git応用[1] Gitコマンド
+    </p>
+
+
+</div>
+<div class="row mx-auto mx-3 mt-2 mb-0">
+    
+    <p class="date mx-3 my-0">
+        2020-06-29
+    </p>
+
+
+</div>
+<nav class="row mx-auto mx-3 mt-2 mb-0">
+    
+
+<ul class="mx-0 my-0">
+    <li>
+        
+            <a href="/" target="_self">
+                <i class="fa fa-home"></i>
+                home
+            </a>
+        
+            <a href="/categories/3-GitHub-Pagesでブログ公開/" target="_self">
+                <i class=""></i>
+                3-GitHub-Pagesでブログ公開
+            </a>
+        
+            <a href="/categories/3-GitHub-Pagesでブログ公開/b-Git応用/" target="_self">
+                <i class="fa fa-folder-open"></i>
+                b-Git応用
+            </a>
+        
+    </li>
+</ul>
+
+</nav>
+
+<div class="mx-3 my-0">
+    <hr>
+</div>
+
+
+<div class="mx-3 my-0">
+    <h1 id="GitHubでソース管理"><a href="#GitHubでソース管理" class="headerlink" title="GitHubでソース管理"></a>GitHubでソース管理</h1><h2 id="きっかけ"><a href="#きっかけ" class="headerlink" title="きっかけ"></a>きっかけ</h2><p>小修正したら動かなくなりにっちもさっちも行かないので、GitHubでソース管理することにした。</p>
+<h3 id="参考資料"><a href="#参考資料" class="headerlink" title="参考資料"></a>参考資料</h3><blockquote>
+<p>参考資料</p>
+<p><a target="_blank" rel="noopener" href="https://qiita.com/majka/items/aba924de8d4a92f75dbb">https://qiita.com/majka/items/aba924de8d4a92f75dbb</a></p>
+<p><a target="_blank" rel="noopener" href="https://qiita.com/tnatsume00/items/e147662368d02e6416d2">https://qiita.com/tnatsume00/items/e147662368d02e6416d2</a></p>
+<p><a target="_blank" rel="noopener" href="https://qiita.com/megu_ma/items/e459e62821bdd6dbaccb">https://qiita.com/megu_ma/items/e459e62821bdd6dbaccb</a></p>
+<p><a target="_blank" rel="noopener" href="https://qiita.com/yukibe/items/9ef9d54f2e7d53cfb51c">https://qiita.com/yukibe/items/9ef9d54f2e7d53cfb51c</a></p>
+</blockquote>
+<h2 id="作業"><a href="#作業" class="headerlink" title="作業"></a>作業</h2><h3 id="ローカルPCでの初期化"><a href="#ローカルPCでの初期化" class="headerlink" title="ローカルPCでの初期化"></a>ローカルPCでの初期化</h3><h3 id="GitHubでの登録"><a href="#GitHubでの登録" class="headerlink" title="GitHubでの登録"></a>GitHubでの登録</h3><h3 id="ローカルPCでのクローン"><a href="#ローカルPCでのクローン" class="headerlink" title="ローカルPCでのクローン"></a>ローカルPCでのクローン</h3><h3 id="コミット"><a href="#コミット" class="headerlink" title="コミット"></a>コミット</h3><h3 id="プッシュ"><a href="#プッシュ" class="headerlink" title="プッシュ"></a>プッシュ</h3><h3 id="新たなPCでpushした場合のエラー発生への対策"><a href="#新たなPCでpushした場合のエラー発生への対策" class="headerlink" title="新たなPCでpushした場合のエラー発生への対策"></a>新たなPCでpushした場合のエラー発生への対策</h3><p><a target="_blank" rel="noopener" href="https://koujiro.hatenablog.com/entry/2019/11/13/105656">error: src refspec master does not match any【解決策】</a></p>
+<p><a target="_blank" rel="noopener" href="https://koujiro.hatenablog.com/entry/2019/11/13/105656">https://koujiro.hatenablog.com/entry/2019/11/13/105656</a></p>
+<h2 id="gitコマンドのインストール"><a href="#gitコマンドのインストール" class="headerlink" title="gitコマンドのインストール"></a>gitコマンドのインストール</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su</span><br><span class="line"># apt install git </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ローカルPCでの作業"><a href="#ローカルPCでの作業" class="headerlink" title="ローカルPCでの作業"></a>ローカルPCでの作業</h2><h3 id="ユーザー名を指定"><a href="#ユーザー名を指定" class="headerlink" title="ユーザー名を指定"></a>ユーザー名を指定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~$ git config --global user.name hamkaz</span><br></pre></td></tr></table></figure>
+
+<h3 id="GitHubのソースを管理するE-mailアドレスを指定"><a href="#GitHubのソースを管理するE-mailアドレスを指定" class="headerlink" title="GitHubのソースを管理するE-mailアドレスを指定"></a>GitHubのソースを管理するE-mailアドレスを指定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~$ git config --global user.email hamak88iot@gmail.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="公開鍵を作成"><a href="#公開鍵を作成" class="headerlink" title="公開鍵を作成"></a>公開鍵を作成</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~$ ssh-keygen -t rsa -C hamak88iot@gmail.com</span><br><span class="line">Generating public&#x2F;private rsa key pair.</span><br><span class="line">Enter file in which to save the key (&#x2F;home&#x2F;hamkaz&#x2F;.ssh&#x2F;id_rsa): [無入力]</span><br><span class="line">Enter passphrase (empty for no passphrase): [roborobo1]</span><br><span class="line">Enter same passphrase again: [roborobo1]</span><br><span class="line">Your identification has been saved in &#x2F;home&#x2F;hamkaz&#x2F;.ssh&#x2F;id_rsa.</span><br><span class="line">Your public key has been saved in &#x2F;home&#x2F;hamkaz&#x2F;.ssh&#x2F;id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:k2g+pXk3RAMe&#x2F;Csf5s0NRgEcGdhIdL9A1Ox4aIXrLoo hamak88iot@gmail.com</span><br><span class="line">The key&#39;s randomart image is:</span><br><span class="line">+---[RSA 2048]----+</span><br><span class="line">|       +&#x3D;*BO     |</span><br><span class="line">|       .+&#x3D;&#x3D;.&#x3D;    |</span><br><span class="line">|        ..+*..   |</span><br><span class="line">|       . o*o+.   |</span><br><span class="line">|      o So.+.    |</span><br><span class="line">|     o +.o&#x3D; o    |</span><br><span class="line">|      &#x3D; .*o&#x3D; o   |</span><br><span class="line">|     . o..+.o .  |</span><br><span class="line">|    E .. .       |</span><br><span class="line">+----[SHA256]-----+</span><br><span class="line">hamkaz@debian1-de-kaz:~$ </span><br></pre></td></tr></table></figure>
+
+<h3 id="GitHubのソースを管理する公開鍵の内容を全コピーする。"><a href="#GitHubのソースを管理する公開鍵の内容を全コピーする。" class="headerlink" title="GitHubのソースを管理する公開鍵の内容を全コピーする。"></a>GitHubのソースを管理する公開鍵の内容を全コピーする。</h3><p>ローカルPC上、nanoなどのエディタで公開鍵の内容を全コピーする。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~</span><br><span class="line">L .ssh</span><br><span class="line">	- id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxNjPRyoYkNfc2A&#x2F;QZI7oKROG9jCLcQXECVX4oH&#x2F;c&#x2F;Qsr2kO2wmKA&#x2F;S7XTmxmuCjrUdO54+zJGywk7oME7qzSK1zcjlIHwAjj78XW5k61I7oUMtjozp5Z21877i9tQLODil9j0swScX9FKGyxoFPAlvPev1X6WGLO23iGPVuCaVsBVeColW1J8s4axnEq0fyUfKd8AYyZm66yZLrAbsP+F9qFkOk9h04p76jTnH&#x2F;P2KWvM3Cupf0HjHgHyDkLBeAJOvJZWwqCY3RSwoFsrWm9NgTAv9Lykr0141mQ5KYKGxYsFI7JI8F1Kthy01F18eVbfsD&#x2F;pt3Pr154gPJfH4fiX hamak88iot@gmail.com</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="GitHubの作業"><a href="#GitHubの作業" class="headerlink" title="GitHubの作業"></a>GitHubの作業</h2><h3 id="公開鍵の登録"><a href="#公開鍵の登録" class="headerlink" title="公開鍵の登録"></a>公開鍵の登録</h3><p>ローカルPCで作成した公開鍵の内容を、GitHubに登録する。</p>
+<p>GitHub &gt; Personal Setting &gt; SSH and GPG keysで、New SSH Keyボタンを押すと、SSHによるGitHubカードが作成される。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SSH</span><br><span class="line">hamkaz@debian1-de-kaz</span><br><span class="line">77:23:75:ff:8c:e3:4e:0d:27:bc:d0:45:07:5b:d4:f8</span><br><span class="line">Added on 19 Jun 2020</span><br><span class="line">Never used — Read&#x2F;write</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="接続確認"><a href="#接続確認" class="headerlink" title="接続確認"></a>接続確認</h3><p>公開鍵によるローカルPCからGitHubへの接続確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~$ ssh -T git@github.com</span><br><span class="line">The authenticity of host &#39;github.com (52.69.186.44)&#39; can&#39;t be established.</span><br><span class="line">RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span><br><span class="line">Are you sure you want to continue connecting (yes&#x2F;no)? yes</span><br><span class="line">-&gt; [roborobo1]</span><br><span class="line">Warning: Permanently added &#39;github.com,52.69.186.44&#39; (RSA) to the list of known hosts.</span><br><span class="line">Hi HamKaz! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="git管理用のディレクトリ作成"><a href="#git管理用のディレクトリ作成" class="headerlink" title="git管理用のディレクトリ作成"></a>git管理用のディレクトリ作成</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir git</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="gitディレクトリの初期化"><a href="#gitディレクトリの初期化" class="headerlink" title="gitディレクトリの初期化"></a>gitディレクトリの初期化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git$ git init</span><br><span class="line">Initialized empty Git repository in &#x2F;home&#x2F;hamkaz&#x2F;git&#x2F;.git&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ディレクトリ確認"><a href="#ディレクトリ確認" class="headerlink" title="ディレクトリ確認"></a>ディレクトリ確認</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git$ ls -la</span><br><span class="line">合計 28</span><br><span class="line">drwxr-xr-x  7 hamkaz hamkaz 4096  6月 19 17:49 .</span><br><span class="line">drwxr-xr-x 33 hamkaz hamkaz 4096  6月 19 17:15 ..</span><br><span class="line">drwxr-xr-x  7 hamkaz hamkaz 4096  6月 19 17:49 .git</span><br><span class="line">drwxr-xr-x  7 hamkaz hamkaz 4096  6月 11 21:51 Org_Landscape</span><br><span class="line">drwxr-xr-x  2 hamkaz hamkaz 4096  6月 11 23:11 テストソース_プラグイン</span><br><span class="line">drwxr-xr-x  8 hamkaz hamkaz 4096  6月 11 21:58 テストソース_英語</span><br><span class="line">drwxr-xr-x  2 hamkaz hamkaz 4096  6月 11 22:36 テストソース_日本語</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="gitダウンロード-amp-クローン（複製）"><a href="#gitダウンロード-amp-クローン（複製）" class="headerlink" title="gitダウンロード&amp;クローン（複製）"></a>gitダウンロード&amp;クローン（複製）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git$ git clone https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git</span><br><span class="line">Cloning into &#39;hexo-theme-simpler&#39;...</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: hamkaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;hamkaz@github.com&#39;: </span><br><span class="line">remote: Enumerating objects: 5, done.</span><br><span class="line">remote: Counting objects: 100% (5&#x2F;5), done.</span><br><span class="line">remote: Compressing objects: 100% (4&#x2F;4), done.</span><br><span class="line">remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (5&#x2F;5), done.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ディレクトリ確認-1"><a href="#ディレクトリ確認-1" class="headerlink" title="ディレクトリ確認"></a>ディレクトリ確認</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git$ ls -la</span><br><span class="line">合計 32</span><br><span class="line">drwxr-xr-x  8 hamkaz hamkaz 4096  6月 19 17:50 .</span><br><span class="line">drwxr-xr-x 33 hamkaz hamkaz 4096  6月 19 17:15 ..</span><br><span class="line">drwxr-xr-x  7 hamkaz hamkaz 4096  6月 19 17:50 .git</span><br><span class="line">drwxr-xr-x  7 hamkaz hamkaz 4096  6月 11 21:51 Org_Landscape</span><br><span class="line">drwxr-xr-x  3 hamkaz hamkaz 4096  6月 19 17:50 hexo-theme-simpler</span><br><span class="line">drwxr-xr-x  2 hamkaz hamkaz 4096  6月 11 23:11 テストソース_プラグイン</span><br><span class="line">drwxr-xr-x  8 hamkaz hamkaz 4096  6月 11 21:58 テストソース_英語</span><br><span class="line">drwxr-xr-x  2 hamkaz hamkaz 4096  6月 11 22:36 テストソース_日本語</span><br></pre></td></tr></table></figure>
+
+<p>クローンでディレクトリが作成された。</p>
+<h3 id="配下のディレクトリ確認"><a href="#配下のディレクトリ確認" class="headerlink" title="配下のディレクトリ確認"></a>配下のディレクトリ確認</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git$ cd he*</span><br><span class="line"></span><br><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ ls</span><br><span class="line">LICENSE  README.md</span><br><span class="line"></span><br><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ ls -la</span><br><span class="line">合計 24</span><br><span class="line">drwxr-xr-x 3 hamkaz hamkaz 4096  6月 19 17:50 .</span><br><span class="line">drwxr-xr-x 8 hamkaz hamkaz 4096  6月 19 17:50 ..</span><br><span class="line">drwxr-xr-x 8 hamkaz hamkaz 4096  6月 19 17:50 .git</span><br><span class="line">-rw-r--r-- 1 hamkaz hamkaz 1610  6月 19 17:50 .gitignore</span><br><span class="line">-rw-r--r-- 1 hamkaz hamkaz 1063  6月 19 17:50 LICENSE</span><br><span class="line">-rw-r--r-- 1 hamkaz hamkaz   20  6月 19 17:50 README.md</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="作成したファイルを追加する"><a href="#作成したファイルを追加する" class="headerlink" title="作成したファイルを追加する"></a>作成したファイルを追加する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git add --all</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="追加状況を確認しておく"><a href="#追加状況を確認しておく" class="headerlink" title="追加状況を確認しておく"></a>追加状況を確認しておく</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line"></span><br><span class="line">	modified:   .gitignore</span><br><span class="line">	new file:   _config.yml</span><br></pre></td></tr></table></figure>
+
+<h3 id="追加状況をコミット（確定）する"><a href="#追加状況をコミット（確定）する" class="headerlink" title="追加状況をコミット（確定）する"></a>追加状況をコミット（確定）する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git commit -m 2020June19</span><br><span class="line">[master 7713b40] 2020June19</span><br><span class="line"> 202 files changed, 11338 insertions(+), 104 deletions(-)</span><br><span class="line"> rewrite .gitignore (98%)</span><br><span class="line"> create mode 100644 _config.yml</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ログを確認する"><a href="#ログを確認する" class="headerlink" title="ログを確認する"></a>ログを確認する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git log</span><br><span class="line">commit 7713b407ff2bf77630a2e7cbe81a59990cf90e0f (HEAD -&gt; master)</span><br><span class="line">Author: hamkaz &lt;hamak88iot@gmail.com&gt;</span><br><span class="line">Date:   Fri Jun 19 17:53:58 2020 +0900</span><br><span class="line"></span><br><span class="line">    2020June19</span><br><span class="line"></span><br><span class="line">commit fb121ebe2b63503121499fa4179d711b6f850eb6 (origin&#x2F;master, origin&#x2F;HEAD)</span><br><span class="line">Author: HamKaz &lt;65141677+HamKaz@users.noreply.github.com&gt;</span><br><span class="line">Date:   Fri Jun 19 16:38:06 2020 +0900</span><br><span class="line"></span><br><span class="line">    Initial commit</span><br><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git commit .</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of &#39;origin&#x2F;master&#39; by 1 commit.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="オリジン作成"><a href="#オリジン作成" class="headerlink" title="オリジン作成"></a>オリジン作成</h3><h3 id="プッシュする"><a href="#プッシュする" class="headerlink" title="プッシュする"></a>プッシュする</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git push origin master</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">Enumerating objects: 244, done.</span><br><span class="line">Counting objects: 100% (244&#x2F;244), done.</span><br><span class="line">Delta compression using up to 4 threads</span><br><span class="line">Compressing objects: 100% (222&#x2F;222), done.</span><br><span class="line">Writing objects: 100% (242&#x2F;242), 30.17 MiB | 3.64 MiB&#x2F;s, done.</span><br><span class="line">Total 242 (delta 20), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (20&#x2F;20), done.</span><br><span class="line">To https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git</span><br><span class="line">   fb121eb..7713b40  master -&gt; master</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="変更履歴をコミット（確定）する"><a href="#変更履歴をコミット（確定）する" class="headerlink" title="変更履歴をコミット（確定）する"></a>変更履歴をコミット（確定）する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git commit .</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of &#39;origin&#x2F;master&#39; by 1 commit.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="履歴とファイルをプッシュ（アップロード）する"><a href="#履歴とファイルをプッシュ（アップロード）する" class="headerlink" title="履歴とファイルをプッシュ（アップロード）する"></a>履歴とファイルをプッシュ（アップロード）する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git push origin master</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">Enumerating objects: 244, done.</span><br><span class="line">Counting objects: 100% (244&#x2F;244), done.</span><br><span class="line">Delta compression using up to 4 threads</span><br><span class="line">Compressing objects: 100% (222&#x2F;222), done.</span><br><span class="line">Writing objects: 100% (242&#x2F;242), 30.17 MiB | 3.64 MiB&#x2F;s, done.</span><br><span class="line">Total 242 (delta 20), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (20&#x2F;20), done.</span><br><span class="line">To https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git</span><br><span class="line">   fb121eb..7713b40  master -&gt; master</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="いきなりコミットとプッシュしないで、ブランチで様子を見る"><a href="#いきなりコミットとプッシュしないで、ブランチで様子を見る" class="headerlink" title="いきなりコミットとプッシュしないで、ブランチで様子を見る"></a>いきなりコミットとプッシュしないで、ブランチで様子を見る</h2><h3 id="ブランチ作成"><a href="#ブランチ作成" class="headerlink" title="ブランチ作成"></a>ブランチ作成</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git branch develop</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="自分の所属するブランチを確認する"><a href="#自分の所属するブランチを確認する" class="headerlink" title="自分の所属するブランチを確認する"></a>自分の所属するブランチを確認する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git branch</span><br><span class="line">  develop</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="自分の所属するブランチを切り替える"><a href="#自分の所属するブランチを切り替える" class="headerlink" title="自分の所属するブランチを切り替える"></a>自分の所属するブランチを切り替える</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git checkout develop</span><br><span class="line">Switched to branch &#39;develop&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="自分の所属するブランチをもう一度確認する"><a href="#自分の所属するブランチをもう一度確認する" class="headerlink" title="自分の所属するブランチをもう一度確認する"></a>自分の所属するブランチをもう一度確認する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git branch</span><br><span class="line"></span><br><span class="line">* develop</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="コミットを含めた状態を確認する"><a href="#コミットを含めた状態を確認する" class="headerlink" title="コミットを含めた状態を確認する"></a>コミットを含めた状態を確認する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git status</span><br><span class="line">On branch develop</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="オリジン（源流）ブランチと今のブランチの差分を見る"><a href="#オリジン（源流）ブランチと今のブランチの差分を見る" class="headerlink" title="オリジン（源流）ブランチと今のブランチの差分を見る"></a>オリジン（源流）ブランチと今のブランチの差分を見る</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git diff</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="add-gt-commit-gt-pushする"><a href="#add-gt-commit-gt-pushする" class="headerlink" title="add -&gt; commit -&gt; pushする"></a>add -&gt; commit -&gt; pushする</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="オリジン（源流）ブランチに戻す"><a href="#オリジン（源流）ブランチに戻す" class="headerlink" title="オリジン（源流）ブランチに戻す"></a>オリジン（源流）ブランチに戻す</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git checkout master</span><br><span class="line">Switched to branch &#39;master&#39;</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="自分の所属するブランチをもう一度確認する-1"><a href="#自分の所属するブランチをもう一度確認する-1" class="headerlink" title="自分の所属するブランチをもう一度確認する"></a>自分の所属するブランチをもう一度確認する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;hexo-theme-simpler$ git branch</span><br><span class="line">  develop</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="時間が立ってから作業開始"><a href="#時間が立ってから作業開始" class="headerlink" title="時間が立ってから作業開始"></a>時間が立ってから作業開始</h2><h3 id="現在のブランチ（立ち位置）"><a href="#現在のブランチ（立ち位置）" class="headerlink" title="現在のブランチ（立ち位置）"></a>現在のブランチ（立ち位置）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git branch</span><br><span class="line">  develop</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修正点を追加する"><a href="#修正点を追加する" class="headerlink" title="修正点を追加する"></a>修正点を追加する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git add -A</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="コミットせずにdevelopブランチへ出ようとすると警告"><a href="#コミットせずにdevelopブランチへ出ようとすると警告" class="headerlink" title="コミットせずにdevelopブランチへ出ようとすると警告"></a>コミットせずにdevelopブランチへ出ようとすると警告</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git checkout develop</span><br><span class="line">M	_config.yml</span><br><span class="line">D	source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers0.md</span><br><span class="line">D	source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers1.md</span><br><span class="line">D	</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="懲りずに。コミットせずにmasterブランチへ出ようとすると警告"><a href="#懲りずに。コミットせずにmasterブランチへ出ようとすると警告" class="headerlink" title="懲りずに。コミットせずにmasterブランチへ出ようとすると警告"></a>懲りずに。コミットせずにmasterブランチへ出ようとすると警告</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git checkout master</span><br><span class="line">M	_config.yml</span><br><span class="line">D	source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers0.md</span><br><span class="line">D	source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers1.md</span><br><span class="line">D</span><br><span class="line">D	t</span><br><span class="line">D	themes&#x2F;standrews&#x2F;source&#x2F;css&#x2F;styles.css</span><br><span class="line">D	themes&#x2F;standrews&#x2F;source&#x2F;images&#x2F;default.jpg</span><br><span class="line">Switched to branch &#39;master&#39;</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ブランチを確認して、修正点を追加する"><a href="#ブランチを確認して、修正点を追加する" class="headerlink" title="ブランチを確認して、修正点を追加する"></a>ブランチを確認して、修正点を追加する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git branch</span><br><span class="line">  develop</span><br><span class="line">* master</span><br><span class="line"></span><br><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git add -A</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="現況の修正履歴を確認する"><a href="#現況の修正履歴を確認する" class="headerlink" title="現況の修正履歴を確認する"></a>現況の修正履歴を確認する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &#39;origin&#x2F;master&#39;.</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line"></span><br><span class="line">	modified:   _config.yml</span><br><span class="line">	deleted:    source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers0.md</span><br><span class="line">	deleted:    source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers1.md</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修正をコミット名2020June19-2として確定する"><a href="#修正をコミット名2020June19-2として確定する" class="headerlink" title="修正をコミット名2020June19-2として確定する"></a>修正をコミット名2020June19-2として確定する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git commit -m 2020June19-2</span><br><span class="line">[master b678bc3] 2020June19-2</span><br><span class="line"> 43 files changed, 11 insertions(+), 895 deletions(-)</span><br><span class="line"> delete mode 100644 source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers0.md</span><br><span class="line"> delete mode 100644 source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers1.md</span><br><span class="line"> delete mode 100644 source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers2.md</span><br><span class="line"> delete mode 100644 source&#x2F;_posts&#x2F;5 Modern Editing Tips for Copy Bloggers3.md</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ログを見る"><a href="#ログを見る" class="headerlink" title="ログを見る"></a>ログを見る</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git log</span><br><span class="line">commit b678bc37f921a1b531c04d847189bc94b1fed33b (HEAD -&gt; master)</span><br><span class="line">Author: hamkaz &lt;hamak88iot@gmail.com&gt;</span><br><span class="line">Date:   Fri Jun 19 20:41:28 2020 +0900</span><br><span class="line"></span><br><span class="line">    2020June19-2</span><br><span class="line"></span><br><span class="line">commit 7713b407ff2bf77630a2e7cbe81a59990cf90e0f (origin&#x2F;master, origin&#x2F;HEAD, develop)</span><br><span class="line">Author: hamkaz &lt;hamak88iot@gmail.com&gt;</span><br><span class="line">Date:   Fri Jun 19 17:53:58 2020 +0900</span><br><span class="line"></span><br><span class="line">    2020June19</span><br><span class="line"></span><br><span class="line">commit fb121ebe2b63503121499fa4179d711b6f850eb6</span><br><span class="line">Author: HamKaz &lt;65141677+HamKaz@users.noreply.github.com&gt;</span><br><span class="line">Date:   Fri Jun 19 16:38:06 2020 +0900</span><br><span class="line"></span><br><span class="line">    Initial commit</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="コミットした内容をリモート（サーバー）のmasterブランチに反映するとエラー"><a href="#コミットした内容をリモート（サーバー）のmasterブランチに反映するとエラー" class="headerlink" title="コミットした内容をリモート（サーバー）のmasterブランチに反映するとエラー"></a>コミットした内容をリモート（サーバー）のmasterブランチに反映するとエラー</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git push origin master</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">To https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git</span><br><span class="line"> ! [rejected]        master -&gt; master (fetch first)</span><br><span class="line">error: failed to push some refs to &#39;https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git&#39;</span><br><span class="line">hint: Updates were rejected because the remote contains work that you do</span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., &#39;git pull ...&#39;) before pushing again.</span><br><span class="line">hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="コミットした内容をリモート（サーバー）のdevelopブランチに反映する"><a href="#コミットした内容をリモート（サーバー）のdevelopブランチに反映する" class="headerlink" title="コミットした内容をリモート（サーバー）のdevelopブランチに反映する"></a>コミットした内容をリモート（サーバー）のdevelopブランチに反映する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git push origin develop</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">Enumerating objects: 247, done.</span><br><span class="line">Counting objects: 100% (247&#x2F;247), done.</span><br><span class="line">Delta compression using up to 4 threads</span><br><span class="line">Compressing objects: 100% (226&#x2F;226), done.</span><br><span class="line">Writing objects: 100% (247&#x2F;247), 30.17 MiB | 8.37 MiB&#x2F;s, done.</span><br><span class="line">Total 247 (delta 20), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (20&#x2F;20), done.</span><br><span class="line">remote: </span><br><span class="line">remote: Create a pull request for &#39;develop&#39; on GitHub by visiting:</span><br><span class="line">remote:      https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler&#x2F;pull&#x2F;new&#x2F;develop</span><br><span class="line">remote: </span><br><span class="line">To https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git</span><br><span class="line"> * [new branch]      develop -&gt; develop</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git commit .</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of &#39;origin&#x2F;master&#39; by 1 commit.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br><span class="line"></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="現在のブランチを確認する"><a href="#現在のブランチを確認する" class="headerlink" title="現在のブランチを確認する"></a>現在のブランチを確認する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git branch</span><br><span class="line">  develop</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="masterブランチへpushすると、エラー"><a href="#masterブランチへpushすると、エラー" class="headerlink" title="masterブランチへpushすると、エラー"></a>masterブランチへpushすると、エラー</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git push origin master</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">To https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git</span><br><span class="line"> ! [rejected]        master -&gt; master (fetch first)</span><br><span class="line">error: failed to push some refs to &#39;https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git&#39;</span><br><span class="line">hint: Updates were rejected because the remote contains work that you do</span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., &#39;git pull ...&#39;) before pushing again.</span><br><span class="line">hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="developブランチだとできる"><a href="#developブランチだとできる" class="headerlink" title="developブランチだとできる"></a>developブランチだとできる</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git push origin develop</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">Everything up-to-date</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="差分が無いか確認する"><a href="#差分が無いか確認する" class="headerlink" title="差分が無いか確認する"></a>差分が無いか確認する</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git diff</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="変更を確定せずにブランチを抜けようとすると警告"><a href="#変更を確定せずにブランチを抜けようとすると警告" class="headerlink" title="変更を確定せずにブランチを抜けようとすると警告"></a>変更を確定せずにブランチを抜けようとすると警告</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git checkout master</span><br><span class="line">Already on &#39;master&#39;</span><br><span class="line">Your branch is ahead of &#39;origin&#x2F;master&#39; by 1 commit.</span><br><span class="line">  (use &quot;git push&quot; to publish your local commits)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="（ローカルmasterにいてリモートMasterを）pullしてみる"><a href="#（ローカルmasterにいてリモートMasterを）pullしてみる" class="headerlink" title="（ローカルmasterにいてリモートMasterを）pullしてみる"></a>（ローカルmasterにいてリモートMasterを）pullしてみる</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git pull origin master</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">remote: Enumerating objects: 219, done.</span><br><span class="line">remote: Counting objects: 100% (219&#x2F;219), done.</span><br><span class="line">remote: Compressing objects: 100% (143&#x2F;143), done.</span><br><span class="line">remote: Total 210 (delta 76), reused 0 (delta 0), pack-reused 0</span><br><span class="line">Receiving objects: 100% (210&#x2F;210), 29.95 KiB | 214.00 KiB&#x2F;s, done.</span><br><span class="line">Resolving deltas: 100% (76&#x2F;76), completed with 6 local objects.</span><br><span class="line">From https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line">   7713b40..486487e  master     -&gt; origin&#x2F;master</span><br><span class="line">Merge made by the &#39;recursive&#39; strategy.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git branch</span><br><span class="line">  develop</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="masterでmasterの内容をpush"><a href="#masterでmasterの内容をpush" class="headerlink" title="masterでmasterの内容をpush"></a>masterでmasterの内容をpush</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git push origin master</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">Enumerating objects: 14, done.</span><br><span class="line">Counting objects: 100% (11&#x2F;11), done.</span><br><span class="line">Delta compression using up to 4 threads</span><br><span class="line">Compressing objects: 100% (6&#x2F;6), done.</span><br><span class="line">Writing objects: 100% (6&#x2F;6), 791 bytes | 791.00 KiB&#x2F;s, done.</span><br><span class="line">Total 6 (delta 5), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (5&#x2F;5), completed with 4 local objects.</span><br><span class="line">To https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git</span><br><span class="line">   486487e..c4f8d9a  master -&gt; master</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git pull origin master</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">From https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line">Already up to date.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git checkout develop</span><br><span class="line">Switched to branch &#39;develop&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="-4"><a href="#-4" class="headerlink" title=""></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git rebase master</span><br><span class="line">First, rewinding head to replay your work on top of it...</span><br><span class="line">Fast-forwarded develop to master.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="-5"><a href="#-5" class="headerlink" title=""></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git push -f origin develop</span><br><span class="line">Username for &#39;https:&#x2F;&#x2F;github.com&#39;: HamKaz</span><br><span class="line">Password for &#39;https:&#x2F;&#x2F;HamKaz@github.com&#39;: </span><br><span class="line">Total 0 (delta 0), reused 0 (delta 0)</span><br><span class="line">To https:&#x2F;&#x2F;github.com&#x2F;HamKaz&#x2F;hexo-theme-simpler.git</span><br><span class="line">   7713b40..c4f8d9a  develop -&gt; develop</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="-6"><a href="#-6" class="headerlink" title=""></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hamkaz@debian1-de-kaz:~&#x2F;git&#x2F;simpler$ git branch</span><br><span class="line">* develop</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="なんにも無いところから"><a href="#なんにも無いところから" class="headerlink" title="なんにも無いところから"></a>なんにも無いところから</h2><!--stackedit_data:
+eyJoaXN0b3J5IjpbOTEyNjAwMzc3LDE1MzcwNTkyMDddfQ==
+-->
+</div>
+
+
+                    </main>
+                </div>
+                <div class="col-12 col-lg-4 mx-0 my-0 px-0">
+                    <aside class="card mx-2 my-2 sidebar-sticky">
+    <div class="row mx-3 mt-3 mb-0">
+    </div>
+    
+        <section class="row mx-auto mx-3 mt-3 mb-0">
+    <div class="col-12">
+        <p class="h5 text-center">目次</p>
+    </div>
+    <div class="col-12">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub%E3%81%A7%E3%82%BD%E3%83%BC%E3%82%B9%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">GitHubでソース管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%8D%E3%81%A3%E3%81%8B%E3%81%91"><span class="toc-number">1.1.</span> <span class="toc-text">きっかけ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-number">1.1.1.</span> <span class="toc-text">参考資料</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E6%A5%AD"><span class="toc-number">1.2.</span> <span class="toc-text">作業</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABPC%E3%81%A7%E3%81%AE%E5%88%9D%E6%9C%9F%E5%8C%96"><span class="toc-number">1.2.1.</span> <span class="toc-text">ローカルPCでの初期化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub%E3%81%A7%E3%81%AE%E7%99%BB%E9%8C%B2"><span class="toc-number">1.2.2.</span> <span class="toc-text">GitHubでの登録</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABPC%E3%81%A7%E3%81%AE%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3"><span class="toc-number">1.2.3.</span> <span class="toc-text">ローカルPCでのクローン</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88"><span class="toc-number">1.2.4.</span> <span class="toc-text">コミット</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5"><span class="toc-number">1.2.5.</span> <span class="toc-text">プッシュ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E3%81%9F%E3%81%AAPC%E3%81%A7push%E3%81%97%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E7%99%BA%E7%94%9F%E3%81%B8%E3%81%AE%E5%AF%BE%E7%AD%96"><span class="toc-number">1.2.6.</span> <span class="toc-text">新たなPCでpushした場合のエラー発生への対策</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><span class="toc-number">1.3.</span> <span class="toc-text">gitコマンドのインストール</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABPC%E3%81%A7%E3%81%AE%E4%BD%9C%E6%A5%AD"><span class="toc-number">1.4.</span> <span class="toc-text">ローカルPCでの作業</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E5%90%8D%E3%82%92%E6%8C%87%E5%AE%9A"><span class="toc-number">1.4.1.</span> <span class="toc-text">ユーザー名を指定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub%E3%81%AE%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8BE-mail%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%82%92%E6%8C%87%E5%AE%9A"><span class="toc-number">1.4.2.</span> <span class="toc-text">GitHubのソースを管理するE-mailアドレスを指定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E9%96%8B%E9%8D%B5%E3%82%92%E4%BD%9C%E6%88%90"><span class="toc-number">1.4.3.</span> <span class="toc-text">公開鍵を作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub%E3%81%AE%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B%E5%85%AC%E9%96%8B%E9%8D%B5%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E5%85%A8%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B%E3%80%82"><span class="toc-number">1.4.4.</span> <span class="toc-text">GitHubのソースを管理する公開鍵の内容を全コピーする。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GitHub%E3%81%AE%E4%BD%9C%E6%A5%AD"><span class="toc-number">1.5.</span> <span class="toc-text">GitHubの作業</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E9%96%8B%E9%8D%B5%E3%81%AE%E7%99%BB%E9%8C%B2"><span class="toc-number">1.5.1.</span> <span class="toc-text">公開鍵の登録</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E7%B6%9A%E7%A2%BA%E8%AA%8D"><span class="toc-number">1.5.2.</span> <span class="toc-text">接続確認</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E7%AE%A1%E7%90%86%E7%94%A8%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E4%BD%9C%E6%88%90"><span class="toc-number">1.5.3.</span> <span class="toc-text">git管理用のディレクトリ作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%81%AE%E5%88%9D%E6%9C%9F%E5%8C%96"><span class="toc-number">1.5.4.</span> <span class="toc-text">gitディレクトリの初期化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A2%BA%E8%AA%8D"><span class="toc-number">1.5.5.</span> <span class="toc-text">ディレクトリ確認</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-amp-%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%EF%BC%88%E8%A4%87%E8%A3%BD%EF%BC%89"><span class="toc-number">1.5.6.</span> <span class="toc-text">gitダウンロード&amp;クローン（複製）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A2%BA%E8%AA%8D-1"><span class="toc-number">1.5.7.</span> <span class="toc-text">ディレクトリ確認</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E4%B8%8B%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A2%BA%E8%AA%8D"><span class="toc-number">1.5.8.</span> <span class="toc-text">配下のディレクトリ確認</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B"><span class="toc-number">1.5.9.</span> <span class="toc-text">作成したファイルを追加する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%BD%E5%8A%A0%E7%8A%B6%E6%B3%81%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8F"><span class="toc-number">1.5.10.</span> <span class="toc-text">追加状況を確認しておく</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%BD%E5%8A%A0%E7%8A%B6%E6%B3%81%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%EF%BC%88%E7%A2%BA%E5%AE%9A%EF%BC%89%E3%81%99%E3%82%8B"><span class="toc-number">1.5.11.</span> <span class="toc-text">追加状況をコミット（確定）する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%AD%E3%82%B0%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"><span class="toc-number">1.5.12.</span> <span class="toc-text">ログを確認する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%E4%BD%9C%E6%88%90"><span class="toc-number">1.5.13.</span> <span class="toc-text">オリジン作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%81%99%E3%82%8B"><span class="toc-number">1.5.14.</span> <span class="toc-text">プッシュする</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%89%E6%9B%B4%E5%B1%A5%E6%AD%B4%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%EF%BC%88%E7%A2%BA%E5%AE%9A%EF%BC%89%E3%81%99%E3%82%8B"><span class="toc-number">1.5.15.</span> <span class="toc-text">変更履歴をコミット（確定）する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%A5%E6%AD%B4%E3%81%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%EF%BC%88%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89%EF%BC%89%E3%81%99%E3%82%8B"><span class="toc-number">1.5.16.</span> <span class="toc-text">履歴とファイルをプッシュ（アップロード）する</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%84%E3%81%8D%E3%81%AA%E3%82%8A%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%A8%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%E3%81%97%E3%81%AA%E3%81%84%E3%81%A7%E3%80%81%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%A7%E6%A7%98%E5%AD%90%E3%82%92%E8%A6%8B%E3%82%8B"><span class="toc-number">1.6.</span> <span class="toc-text">いきなりコミットとプッシュしないで、ブランチで様子を見る</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E4%BD%9C%E6%88%90"><span class="toc-number">1.6.1.</span> <span class="toc-text">ブランチ作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%88%86%E3%81%AE%E6%89%80%E5%B1%9E%E3%81%99%E3%82%8B%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"><span class="toc-number">1.6.2.</span> <span class="toc-text">自分の所属するブランチを確認する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%88%86%E3%81%AE%E6%89%80%E5%B1%9E%E3%81%99%E3%82%8B%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88%E3%82%8B"><span class="toc-number">1.6.3.</span> <span class="toc-text">自分の所属するブランチを切り替える</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%88%86%E3%81%AE%E6%89%80%E5%B1%9E%E3%81%99%E3%82%8B%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"><span class="toc-number">1.6.4.</span> <span class="toc-text">自分の所属するブランチをもう一度確認する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%82%92%E5%90%AB%E3%82%81%E3%81%9F%E7%8A%B6%E6%85%8B%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"><span class="toc-number">1.6.5.</span> <span class="toc-text">コミットを含めた状態を確認する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%EF%BC%88%E6%BA%90%E6%B5%81%EF%BC%89%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%A8%E4%BB%8A%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E8%A6%8B%E3%82%8B"><span class="toc-number">1.6.6.</span> <span class="toc-text">オリジン（源流）ブランチと今のブランチの差分を見る</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#add-gt-commit-gt-push%E3%81%99%E3%82%8B"><span class="toc-number">1.6.7.</span> <span class="toc-text">add -&gt; commit -&gt; pushする</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%EF%BC%88%E6%BA%90%E6%B5%81%EF%BC%89%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E6%88%BB%E3%81%99"><span class="toc-number">1.6.8.</span> <span class="toc-text">オリジン（源流）ブランチに戻す</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%88%86%E3%81%AE%E6%89%80%E5%B1%9E%E3%81%99%E3%82%8B%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B-1"><span class="toc-number">1.6.9.</span> <span class="toc-text">自分の所属するブランチをもう一度確認する</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%82%E9%96%93%E3%81%8C%E7%AB%8B%E3%81%A3%E3%81%A6%E3%81%8B%E3%82%89%E4%BD%9C%E6%A5%AD%E9%96%8B%E5%A7%8B"><span class="toc-number">1.7.</span> <span class="toc-text">時間が立ってから作業開始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%EF%BC%88%E7%AB%8B%E3%81%A1%E4%BD%8D%E7%BD%AE%EF%BC%89"><span class="toc-number">1.7.1.</span> <span class="toc-text">現在のブランチ（立ち位置）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%AD%A3%E7%82%B9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B"><span class="toc-number">1.7.2.</span> <span class="toc-text">修正点を追加する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%9B%E3%81%9A%E3%81%ABdevelop%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%B8%E5%87%BA%E3%82%88%E3%81%86%E3%81%A8%E3%81%99%E3%82%8B%E3%81%A8%E8%AD%A6%E5%91%8A"><span class="toc-number">1.7.3.</span> <span class="toc-text">コミットせずにdevelopブランチへ出ようとすると警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%87%B2%E3%82%8A%E3%81%9A%E3%81%AB%E3%80%82%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%9B%E3%81%9A%E3%81%ABmaster%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%B8%E5%87%BA%E3%82%88%E3%81%86%E3%81%A8%E3%81%99%E3%82%8B%E3%81%A8%E8%AD%A6%E5%91%8A"><span class="toc-number">1.7.4.</span> <span class="toc-text">懲りずに。コミットせずにmasterブランチへ出ようとすると警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%A6%E3%80%81%E4%BF%AE%E6%AD%A3%E7%82%B9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B"><span class="toc-number">1.7.5.</span> <span class="toc-text">ブランチを確認して、修正点を追加する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8F%BE%E6%B3%81%E3%81%AE%E4%BF%AE%E6%AD%A3%E5%B1%A5%E6%AD%B4%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"><span class="toc-number">1.7.6.</span> <span class="toc-text">現況の修正履歴を確認する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%AD%A3%E3%82%92%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E5%90%8D2020June19-2%E3%81%A8%E3%81%97%E3%81%A6%E7%A2%BA%E5%AE%9A%E3%81%99%E3%82%8B"><span class="toc-number">1.7.7.</span> <span class="toc-text">修正をコミット名2020June19-2として確定する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%AD%E3%82%B0%E3%82%92%E8%A6%8B%E3%82%8B"><span class="toc-number">1.7.8.</span> <span class="toc-text">ログを見る</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%97%E3%81%9F%E5%86%85%E5%AE%B9%E3%82%92%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%EF%BC%88%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%EF%BC%89%E3%81%AEmaster%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E5%8F%8D%E6%98%A0%E3%81%99%E3%82%8B%E3%81%A8%E3%82%A8%E3%83%A9%E3%83%BC"><span class="toc-number">1.7.9.</span> <span class="toc-text">コミットした内容をリモート（サーバー）のmasterブランチに反映するとエラー</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%97%E3%81%9F%E5%86%85%E5%AE%B9%E3%82%92%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%EF%BC%88%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%EF%BC%89%E3%81%AEdevelop%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E5%8F%8D%E6%98%A0%E3%81%99%E3%82%8B"><span class="toc-number">1.7.10.</span> <span class="toc-text">コミットした内容をリモート（サーバー）のdevelopブランチに反映する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.11.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"><span class="toc-number">1.7.12.</span> <span class="toc-text">現在のブランチを確認する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#master%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%B8push%E3%81%99%E3%82%8B%E3%81%A8%E3%80%81%E3%82%A8%E3%83%A9%E3%83%BC"><span class="toc-number">1.7.13.</span> <span class="toc-text">masterブランチへpushすると、エラー</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#develop%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%A0%E3%81%A8%E3%81%A7%E3%81%8D%E3%82%8B"><span class="toc-number">1.7.14.</span> <span class="toc-text">developブランチだとできる</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E5%88%86%E3%81%8C%E7%84%A1%E3%81%84%E3%81%8B%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"><span class="toc-number">1.7.15.</span> <span class="toc-text">差分が無いか確認する</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%89%E6%9B%B4%E3%82%92%E7%A2%BA%E5%AE%9A%E3%81%9B%E3%81%9A%E3%81%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E6%8A%9C%E3%81%91%E3%82%88%E3%81%86%E3%81%A8%E3%81%99%E3%82%8B%E3%81%A8%E8%AD%A6%E5%91%8A"><span class="toc-number">1.7.16.</span> <span class="toc-text">変更を確定せずにブランチを抜けようとすると警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%88%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABmaster%E3%81%AB%E3%81%84%E3%81%A6%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88Master%E3%82%92%EF%BC%89pull%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B"><span class="toc-number">1.7.17.</span> <span class="toc-text">（ローカルmasterにいてリモートMasterを）pullしてみる</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-1"><span class="toc-number">1.7.18.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#master%E3%81%A7master%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92push"><span class="toc-number">1.7.19.</span> <span class="toc-text">masterでmasterの内容をpush</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-2"><span class="toc-number">1.7.20.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-3"><span class="toc-number">1.7.21.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-4"><span class="toc-number">1.7.22.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-5"><span class="toc-number">1.7.23.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-6"><span class="toc-number">1.7.24.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%AA%E3%82%93%E3%81%AB%E3%82%82%E7%84%A1%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D%E3%81%8B%E3%82%89"><span class="toc-number">1.8.</span> <span class="toc-text">なんにも無いところから</span></a></li></ol></li></ol>
+    <div
+</section>
+
+        <div class="mx-3 my-0">
+    <hr>
+</div>
+
+    
+    <div class="h6 col-12 text-center mb-3">
+        <a href="#">
+            <i class="fa fa-long-arrow-up mr-2"></i>トップに戻る
+        </a>
+    </div>
+</aside>
+
+                </div>
+            </div>
+		</div>
+		<!-- Footer -->
+<div class="container">
+    <footer class="text-center mt-5 py-5">
+        
+
+    <a href="https://twitter.com/?lang=en" target="_blank"><i class="fa fa-twitter mx-2"></i></a>
+
+
+
+    <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube mx-2"></i></a>
+
+
+    <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram mx-2"></i></a>
+
+
+
+
+
+
+
+
+        <p class="h6 text-center mx-0 mt-5 mb-0">
+              Contents and Hexo theme, Copyright 2020 - by HamKaz
+        </p>
+    </footer>
+</div>
+
+		<!-- Include Javascript -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+</html>
